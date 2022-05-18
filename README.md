@@ -18,8 +18,8 @@ Data Engineer with Python (CAREER TRACK)
     - [x]  Manipulating files and directories
     - [x]  Manipulating data
     - [x]  Combining tools
-    - [ ]  Batch processing
-    - [ ]  Creating new tools
+    - [x]  Batch processing
+    - [x]  Creating new tools
 - [ ]  Data Processing with Shell
 - [ ]  Bash Scripting
 - [ ]  Unit Testing for data science Python
