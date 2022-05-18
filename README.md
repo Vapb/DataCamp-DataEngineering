@@ -14,7 +14,7 @@ Data Engineer with Python (CAREER TRACK)
 - [ ]  Streamlined Data ingestion with pandas
 - [ ]  Writing Eficient Python code
 - [ ]  Writing Python Functions
-- [ ]  Introduction to Shell
+- [x]  Introduction to Shell
     - [x]  Manipulating files and directories
     - [x]  Manipulating data
     - [x]  Combining tools
