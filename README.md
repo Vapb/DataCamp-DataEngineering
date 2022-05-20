@@ -42,7 +42,7 @@
 - [ ]  From clean data to meaningful insights
 
 ### Data Manipulation with pandas (Interactive Course)
-- [ ]  Transforming DataFrames 
+- [x]  Transforming DataFrames 
 - [ ]  Aggregating DataFrames 
 - [ ]  Slicing and Indexing DataFrames 
 - [ ]  Creating and Visualizing DataFrames 
