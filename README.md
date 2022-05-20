@@ -1,6 +1,5 @@
 # DataCamp-DataEngineering
-Data Engineer with Python (CAREER TRACK)
-
+### Data Engineer with Python ( Carrer Track )
 - [x]  Data Engineering for Everyone
     - [x]  What is data engineering?
     - [x]  Storing data
@@ -8,8 +7,8 @@ Data Engineer with Python (CAREER TRACK)
 - [ ]  Python Assessment ( Test )
 - [ ]  Introduction to Data Engineering
     - [x]  Introduction to Data Engineering
-    - [ ]  Data engineering toolbox
-    - [ ]  Extract, Transform and Load (ETL)
+    - [x]  Data engineering toolbox
+    - [x]  Extract, Transform and Load (ETL)
     - [ ]  Case Study: DataCamp
 - [ ]  Streamlined Data ingestion with pandas
 - [ ]  Writing Eficient Python code
@@ -34,3 +33,16 @@ Data Engineer with Python (CAREER TRACK)
 - [ ]  Big data fundamentals with pyspark
 - [ ]  Cleaning data with pyspark
 - [ ]  Introduction to MongoDB in python
+
+
+### ETL in Python ( Interactive Course )
+- [ ]  Explore the data and requirements
+- [ ]  Create the ETL foundations
+- [ ]  From raw to clean data
+- [ ]  From clean data to meaningful insights
+
+### Data Manipulation with pandas (Interactive Course)
+- [ ]  Transforming DataFrames 
+- [ ]  Aggregating DataFrames 
+- [ ]  Slicing and Indexing DataFrames 
+- [ ]  Creating and Visualizing DataFrames 
