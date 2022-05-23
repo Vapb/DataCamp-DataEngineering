@@ -43,6 +43,6 @@
 
 ### Data Manipulation with pandas (Interactive Course)
 - [x]  Transforming DataFrames 
-- [ ]  Aggregating DataFrames 
-- [ ]  Slicing and Indexing DataFrames 
+- [x]  Aggregating DataFrames 
+- [x]  Slicing and Indexing DataFrames 
 - [ ]  Creating and Visualizing DataFrames 
