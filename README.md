@@ -1,64 +1,68 @@
-# [DataCamp DataEngineering](datacamp.com)
+# [DataCamp Data Engineering](datacamp.com)
 
-### Data Engineer with Python (Carrer Track)
-- [x]  Data Engineering for Everyone (Interactive Course)
+### [Data Engineer with Python (Carrer Track)](https://app.datacamp.com/learn/career-tracks/data-engineer-with-python)
+
+- [Data Engineering for Everyone (Interactive Course)](https://app.datacamp.com/learn/courses/data-engineering-for-everyone)
     - [x]  What is data engineering?
     - [x]  Storing data
     - [x]  Moving and processing data
 
 - [ ]  Python Assessment ( Test )
 
-- [ ]  Introduction to Data Engineering (Interactive Course)
-    - [x]  Introduction to Data Engineering
-    - [x]  Data engineering toolbox
-    - [x]  Extract, Transform and Load (ETL)
-    - [ ]  Case Study: DataCamp
+- [Introduction to Data Engineering (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-data-engineering)
+    - [x]  Introduction to Data Engineering (100%)
+    - [x]  Data engineering toolbox (100%)
+    - [x]  Extract, Transform and Load (ETL) (100%)
+    - []  Case Study: DataCamp
 
-- [ ]  Streamlined Data ingestion with pandas (Interactive Course)
+- Streamlined Data ingestion with pandas (Interactive Course)
 
-- [ ]  Writing Eficient Python code (Interactive Course)
+- Writing Eficient Python code (Interactive Course)
     - []  Foundations for efficiencies
     - []  Timing and profiling code 
     - []  Gaining efficiencies 
     - []  Basic pandas optimizations 
 
-- [ ]  Writing Python Functions (Interactive Course)
+- Writing Python Functions (Interactive Course)
 
-- [x]  Introduction to Shell (Interactive Course)
+- [Introduction to Shell (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-shell)
     - [x]  Manipulating files and directories
     - [x]  Manipulating data
     - [x]  Combining tools
     - [x]  Batch processing
     - [x]  Creating new tools
 
-- [ ]  Data Processing with Shell (Interactive Course)
+- Data Processing with Shell (Interactive Course)
 
-- [ ]  Bash Scripting (Interactive Course)
+- Bash Scripting (Interactive Course)
 
-- [ ]  Unit Testing for data science Python (Interactive Course)
+- Unit Testing for data science Python (Interactive Course)
 
-- [ ]  Object Oriented Programming Python (Interactive Course)
+- Object Oriented Programming Python (Interactive Course)
 
-- [ ]  Introduction to airflow Python (Interactive Course) 
+- Introduction to airflow Python (Interactive Course) 
 
-- [ ]  Introduction to pyspark (Interactive Course)
+- Introduction to pyspark (Interactive Course)
 
-- [ ]  Introduction to AWS Boto Python (Interactive Course)
+- Introduction to AWS Boto Python (Interactive Course)
 
-- [ ]  Data Analysis in SQL (Postgre SQL) ( Test )
+- Data Analysis in SQL (Postgre SQL) ( Test )
 
-- [ ]  Introduction to relation databases in SQL (Interactive Course)
+- Introduction to relation databases in SQL (Interactive Course)
 
-- [ ]  Database design (Interactive Course)
+- Database design (Interactive Course)
 
-- [ ]  Introduction to SCALA (Interactive Course)
+- Introduction to SCALA (Interactive Course)
 
-- [ ]  Big data fundamentals with pyspark (Interactive Course)
+- Big data fundamentals with pyspark (Interactive Course)
 
-- [ ]  Cleaning data with pyspark (Interactive Course)
+- Cleaning data with pyspark (Interactive Course)
 
-- [ ]  Introduction to MongoDB in python (Interactive Course)
+- Introduction to MongoDB in python (Interactive Course)
 
+---
+
+## Other Interactive Courses
 
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
 - [ ]  Explore the data and requirements
