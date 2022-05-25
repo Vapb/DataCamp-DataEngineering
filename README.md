@@ -1,5 +1,6 @@
-# DataCamp-DataEngineering
-### Data Engineer with Python ( Carrer Track )
+# [DataCamp DataEngineering](datacamp.com)
+
+### Data Engineer with Python (Carrer Track)
 - [x]  Data Engineering for Everyone
     - [x]  What is data engineering?
     - [x]  Storing data
@@ -35,14 +36,20 @@
 - [ ]  Introduction to MongoDB in python
 
 
-### ETL in Python ( Interactive Course )
+### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
 - [ ]  Explore the data and requirements
 - [ ]  Create the ETL foundations
 - [ ]  From raw to clean data
 - [ ]  From clean data to meaningful insights
 
-### Data Manipulation with pandas (Interactive Course)
-- [x]  Transforming DataFrames 
-- [x]  Aggregating DataFrames 
-- [x]  Slicing and Indexing DataFrames 
-- [ ]  Creating and Visualizing DataFrames 
+### [Data Manipulation with pandas (Interactive Course)](https://app.datacamp.com/learn/courses/data-manipulation-with-pandas)
+- [x]  Transforming DataFrames (100%)
+- [x]  Aggregating DataFrames (100%)
+- [x]  Slicing and Indexing DataFrames (100%)
+- [x]  Creating and Visualizing DataFrames (100%)
+
+### [Introduction to SQL (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-sql) 
+- [x] Selecting columns (100%)
+- [x] Filtering rows (100%)
+- [x] Aggregate Functions (100%)
+- [x] Sorting and grouping  (100%)

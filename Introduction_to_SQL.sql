@@ -89,3 +89,32 @@ FROM films
 SELECT COUNT(deathdate) * 100.0 / COUNT(NAME) AS percentage_dead
 FROM people
 
+-- ORDER BY
+SELECT name
+FROM people
+ORDER BY name ASC
+
+SELECT name, birthdate
+FROM people
+ORDER BY name, birthdate DESC
+
+-- GROUP BY
+SELECT release_year, COUNT(title)
+FROM films
+GROUP BY release_year
+
+-- GROUP BY MULTIPLE COLS
+SELECT release_year, country, max(budget)
+FROM films
+GROUP BY release_year, country
+ORDER BY release_year,  country
+
+--LIMIT 
+SELECT country,
+       AVG(budget) AS avg_budget,
+       AVG(gross) AS avg_gross
+FROM films
+GROUP BY country 
+HAVING count(title) > 10
+ORDER BY country
+LIMIT 5
