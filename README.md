@@ -1,39 +1,63 @@
 # [DataCamp DataEngineering](datacamp.com)
 
 ### Data Engineer with Python (Carrer Track)
-- [x]  Data Engineering for Everyone
+- [x]  Data Engineering for Everyone (Interactive Course)
     - [x]  What is data engineering?
     - [x]  Storing data
     - [x]  Moving and processing data
+
 - [ ]  Python Assessment ( Test )
-- [ ]  Introduction to Data Engineering
+
+- [ ]  Introduction to Data Engineering (Interactive Course)
     - [x]  Introduction to Data Engineering
     - [x]  Data engineering toolbox
     - [x]  Extract, Transform and Load (ETL)
     - [ ]  Case Study: DataCamp
-- [ ]  Streamlined Data ingestion with pandas
-- [ ]  Writing Eficient Python code
-- [ ]  Writing Python Functions
-- [x]  Introduction to Shell
+
+- [ ]  Streamlined Data ingestion with pandas (Interactive Course)
+
+- [ ]  Writing Eficient Python code (Interactive Course)
+    - []  Foundations for efficiencies
+    - []  Timing and profiling code 
+    - []  Gaining efficiencies 
+    - []  Basic pandas optimizations 
+
+- [ ]  Writing Python Functions (Interactive Course)
+
+- [x]  Introduction to Shell (Interactive Course)
     - [x]  Manipulating files and directories
     - [x]  Manipulating data
     - [x]  Combining tools
     - [x]  Batch processing
     - [x]  Creating new tools
-- [ ]  Data Processing with Shell
-- [ ]  Bash Scripting
-- [ ]  Unit Testing for data science Python
-- [ ]  Object Oriented Programming Python
-- [ ]  Introduction to airflow Python
-- [ ]  Introduction to pyspark
-- [ ]  Introduction to AWS Boto Python
+
+- [ ]  Data Processing with Shell (Interactive Course)
+
+- [ ]  Bash Scripting (Interactive Course)
+
+- [ ]  Unit Testing for data science Python (Interactive Course)
+
+- [ ]  Object Oriented Programming Python (Interactive Course)
+
+- [ ]  Introduction to airflow Python (Interactive Course) 
+
+- [ ]  Introduction to pyspark (Interactive Course)
+
+- [ ]  Introduction to AWS Boto Python (Interactive Course)
+
 - [ ]  Data Analysis in SQL (Postgre SQL) ( Test )
-- [ ]  Introduction to relation databases in SQL
-- [ ]  Database design
-- [ ]  Introduction to SCALA
-- [ ]  Big data fundamentals with pyspark
-- [ ]  Cleaning data with pyspark
-- [ ]  Introduction to MongoDB in python
+
+- [ ]  Introduction to relation databases in SQL (Interactive Course)
+
+- [ ]  Database design (Interactive Course)
+
+- [ ]  Introduction to SCALA (Interactive Course)
+
+- [ ]  Big data fundamentals with pyspark (Interactive Course)
+
+- [ ]  Cleaning data with pyspark (Interactive Course)
+
+- [ ]  Introduction to MongoDB in python (Interactive Course)
 
 
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
