@@ -26,7 +26,7 @@
 
 - [Writing Eficient Python code (Interactive Course)](https://app.datacamp.com/learn/courses/writing-efficient-python-code)
     - [x]  Foundations for efficiencies (100%)
-    - []  Timing and profiling code 
+    - [X]  Timing and profiling code (58%)
     - []  Gaining efficiencies 
     - []  Basic pandas optimizations 
 
@@ -106,3 +106,17 @@
 - [x] Filtering rows (100%)
 - [x] Aggregate Functions (100%)
 - [x] Sorting and grouping  (100%)
+
+
+### [Streaming Data with AWS Kinesis and Lambda](https://app.datacamp.com/learn/courses/streaming-data-with-aws-kinesis-and-lambda)
+- [ ] Streaming in the cloud
+- [ ] Going serverless 
+- [ ] Analyzing streaming data 
+- [ ] Monitoring and visualizing streaming data 
+
+
+### [AWS Cloud Concepts](https://app.datacamp.com/learn/courses/aws-cloud-concepts)
+- [ ] Introduction to AWS 
+- [ ] AWS value proposition and economics 
+- [ ] Overview of AWS core services 
+- [ ] The Well-Architected Framework 
