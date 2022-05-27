@@ -19,8 +19,8 @@
 
 
 - [Streamlined Data ingestion with pandas (Interactive Course)](https://app.datacamp.com/learn/courses/streamlined-data-ingestion-with-pandas)
-    - []  Importing Data from Flat Files 
-    - []  Importing Data From Excel Files 
+    - [x]  Importing Data from Flat Files (100%)
+    - [x]  Importing Data From Excel Files (100%)
     - []  Importing Data from Databases 
     - []  Importing JSON Data and Working with APIs 
 
@@ -49,16 +49,16 @@
 - Bash Scripting (Interactive Course)
 
 
-- Unit Testing for data science Python (Interactive Course)
+- Unit Testing for Data Science Python (Interactive Course)
 
 
 - Object Oriented Programming Python (Interactive Course)
 
 
-- Introduction to airflow Python (Interactive Course) 
+- Introduction to Airflow Python (Interactive Course) 
 
 
-- Introduction to pyspark (Interactive Course)
+- Introduction to Pyspark (Interactive Course)
 
 
 - Introduction to AWS Boto Python (Interactive Course)
@@ -67,22 +67,22 @@
 - Data Analysis in SQL (Postgre SQL) ( Test )
 
 
-- Introduction to relation databases in SQL (Interactive Course)
+- Introduction to Relation Databases in SQL (Interactive Course)
 
 
-- Database design (Interactive Course)
+- Database Design (Interactive Course)
 
 
 - Introduction to SCALA (Interactive Course)
 
 
-- Big data fundamentals with pyspark (Interactive Course)
+- Big Data Fundamentals with Pyspark (Interactive Course)
 
 
-- Cleaning data with pyspark (Interactive Course)
+- Cleaning data with Pyspark (Interactive Course)
 
 
-- Introduction to MongoDB in python (Interactive Course)
+- Introduction to MongoDB in Python (Interactive Course)
 
 ---
 
