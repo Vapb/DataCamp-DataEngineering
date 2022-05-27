@@ -1,4 +1,4 @@
-# [DataCamp Data Engineering](datacamp.com)
+# [DataCamp Data Engineering](https://datacamp.com)
 
 ### [Data Engineer with Python (Carrer Track)](https://app.datacamp.com/learn/career-tracks/data-engineer-with-python)
 
@@ -6,6 +6,7 @@
     - [x]  What is data engineering? (100%)
     - [x]  Storing data (100%)
     - [x]  Moving and processing data (100%)
+
 
 - [ ]  Python Assessment ( Test )
 
@@ -26,9 +27,9 @@
 
 - [Writing Eficient Python code (Interactive Course)](https://app.datacamp.com/learn/courses/writing-efficient-python-code)
     - [x]  Foundations for efficiencies (100%)
-    - [X]  Timing and profiling code (58%)
-    - []  Gaining efficiencies 
-    - []  Basic pandas optimizations 
+    - [X]  Timing and profiling code (100%)
+    - [X]  Gaining efficiencies (100%)
+    - [X]  Basic pandas optimizations (100%)
 
 
 - Writing Python Functions (Interactive Course)
