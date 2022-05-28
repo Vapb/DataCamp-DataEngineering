@@ -33,8 +33,8 @@
 
 
 - [Writing Python Functions (Interactive Course)](https://app.datacamp.com/learn/courses/writing-functions-in-python)
-    - []  Best Practices 
-    - []  Context Managers 
+    - [x]  Best Practices (100%)
+    - []  Context Managers (30%)
     - []  Decorators 
     - []  More on Decorators 
 
