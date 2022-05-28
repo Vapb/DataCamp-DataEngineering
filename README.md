@@ -8,7 +8,7 @@
     - [x]  Moving and processing data (100%)
 
 
-- [ ]  Python Assessment ( Test )
+- [x]  Python Assessment ( Test )
 
 
 - [Introduction to Data Engineering (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-data-engineering)
@@ -32,7 +32,11 @@
     - [X]  Basic pandas optimizations (100%)
 
 
-- Writing Python Functions (Interactive Course)
+- [Writing Python Functions (Interactive Course)](https://app.datacamp.com/learn/courses/writing-functions-in-python)
+    - []  Best Practices 
+    - []  Context Managers 
+    - []  Decorators 
+    - []  More on Decorators 
 
 
 - [Introduction to Shell (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-shell)
@@ -49,10 +53,14 @@
 - Bash Scripting (Interactive Course)
 
 
-- Unit Testing for Data Science Python (Interactive Course)
+- [Unit Testing for Data Science Python (Interactive Course)](https://app.datacamp.com/learn/courses/unit-testing-for-data-science-in-python)
 
 
-- Object Oriented Programming Python (Interactive Course)
+- [Object Oriented Programming Python (Interactive Course)](https://app.datacamp.com/learn/courses/object-oriented-programming-in-python)
+    - []  OOP Fundamentals 
+    - []  Inheritance and Polymorphism 
+    - []  Integrating with Standard Python 
+    - []  Best Practices of Class Design 
 
 
 - Introduction to Airflow Python (Interactive Course) 
@@ -107,6 +115,13 @@
 - [x] Filtering rows (100%)
 - [x] Aggregate Functions (100%)
 - [x] Sorting and grouping  (100%)
+
+
+### [Joining Data in SQL (Interactive Course)](https://app.datacamp.com/learn/courses/joining-data-in-sql)
+- [x] Introduction to joins (100%)
+- [] Outer joins and cross joins 
+- [] Set theory clauses 
+- [] Subqueries
 
 
 ### [Streaming Data with AWS Kinesis and Lambda](https://app.datacamp.com/learn/courses/streaming-data-with-aws-kinesis-and-lambda)
