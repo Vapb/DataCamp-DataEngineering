@@ -21,8 +21,8 @@
 - [Streamlined Data ingestion with pandas (Interactive Course)](https://app.datacamp.com/learn/courses/streamlined-data-ingestion-with-pandas)
     - [x]  Importing Data from Flat Files (100%)
     - [x]  Importing Data From Excel Files (100%)
-    - []  Importing Data from Databases 
-    - []  Importing JSON Data and Working with APIs 
+    - [X]  Importing Data from Databases (100%)
+    - []  Importing JSON Data and Working with APIs (50%)
 
 
 - [Writing Eficient Python code (Interactive Course)](https://app.datacamp.com/learn/courses/writing-efficient-python-code)
