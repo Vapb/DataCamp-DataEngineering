@@ -22,7 +22,7 @@
     - [x]  Importing Data from Flat Files (100%)
     - [x]  Importing Data From Excel Files (100%)
     - [X]  Importing Data from Databases (100%)
-    - []  Importing JSON Data and Working with APIs (50%)
+    - [x]  Importing JSON Data and Working with APIs (100%)
 
 
 - [Writing Eficient Python code (Interactive Course)](https://app.datacamp.com/learn/courses/writing-efficient-python-code)
