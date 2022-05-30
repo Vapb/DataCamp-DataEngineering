@@ -35,8 +35,8 @@
 - [Writing Python Functions (Interactive Course)](https://app.datacamp.com/learn/courses/writing-functions-in-python)
     - [x]  Best Practices (100%)
     - [X]  Context Managers (100%)
-    - []  Decorators 
-    - []  More on Decorators 
+    - [X]  Decorators (100%)
+    - [x]  More on Decorators (100%)
 
 
 - [Introduction to Shell (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-shell)
