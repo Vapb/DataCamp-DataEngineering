@@ -8,7 +8,7 @@
     - [x]  Moving and processing data (100%)
 
 
-- [x]  Python Assessment ( Test )
+    - [X]  Python Assessment ( Test )
 
 
 - [Introduction to Data Engineering (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-data-engineering)
@@ -48,12 +48,24 @@
 
 
 - Data Processing with Shell (Interactive Course)
+    - []  Downloading Data on the Command Line 
+    - []  Data Cleaning and Munging on the Command Line 
+    - []  Database Operations on the Command Line 
+    - []  Data Pipeline on the Command Line 
 
 
 - Bash Scripting (Interactive Course)
+    - []  From Command-Line to Bash Script 
+    - []  Variables in Bash Scripting 
+    - []  Control Statements in Bash Scripting 
+    - []  Functions and Automation    
 
 
 - [Unit Testing for Data Science Python (Interactive Course)](https://app.datacamp.com/learn/courses/unit-testing-for-data-science-in-python)
+    - []  Unit testing basics 
+    - []  Intermediate unit testing 
+    - []  Test Organization and Execution 
+    - []  Testing Models, Plots and Much More 
 
 
 - [Object Oriented Programming Python (Interactive Course)](https://app.datacamp.com/learn/courses/object-oriented-programming-in-python)
@@ -64,33 +76,66 @@
 
 
 - Introduction to Airflow Python (Interactive Course) 
+    - []  Intro to Airflow 
+    - []  Implementing Airflow DAGs 
+    - []  Maintaining and monitoring Airflow workflows 
+    - []  Building production pipelines in Airflow 
 
 
 - Introduction to Pyspark (Interactive Course)
+    - []  Getting to know PySpark 
+    - []  Manipulating data 
+    - []  Getting started with machine learning pipelines 
+    - []  Model tuning and selection 
 
 
 - Introduction to AWS Boto Python (Interactive Course)
+    - []  Putting Files in the Cloud! 
+    - []  Sharing Files Securely 
+    - []  Reporting and Notifying! 
+    - []  Pattern Rekognition 
 
 
-- Data Analysis in SQL (Postgre SQL) ( Test )
+    - []  Data Analysis in SQL (Postgre SQL) ( Test )
 
 
 - Introduction to Relation Databases in SQL (Interactive Course)
+    - []  Your first database 
+    - []  Enforce data consistency with attribute constraints 
+    - []  Uniquely identify records with key constraints 
+    - []  Glue together tables with foreign keys 
 
 
 - Database Design (Interactive Course)
+    - []  Processing, Storing, and Organizing Data 
+    - []  Database Schemas and Normalization 
+    - []  Database Views 
+    - []  Database Management 
 
 
 - Introduction to SCALA (Interactive Course)
-
+    - []  A Scalable Language 
+    - []  Workflows, Functions, Collections 
+    - []  Type Systems, Control Structures, Style 
 
 - Big Data Fundamentals with Pyspark (Interactive Course)
+    - []  Introduction to Big Data analysis with Spark 
+    - []  Programming in PySpark RDD’s 
+    - []  PySpark SQL & DataFrames 
+    - []  Machine Learning with PySpark MLlib 
 
 
 - Cleaning data with Pyspark (Interactive Course)
-
+    - []  DataFrame details 
+    - []  Manipulating DataFrames in the real world 
+    - []  Improving Performance 
+    - []  Complex processing and data pipelines 
 
 - Introduction to MongoDB in Python (Interactive Course)
+    - []  Flexibly Structured Data 
+    - []  Working with Distinct Values and Sets 
+    - []  Get Only What You Need, and Fast 
+    - []  Aggregation Pipelines: Let the Server Do It For You 
 
 ---
 
