@@ -70,9 +70,9 @@
 
 - [Object Oriented Programming Python (Interactive Course)](https://app.datacamp.com/learn/courses/object-oriented-programming-in-python)
     - [X]  OOP Fundamentals (100%)
-    - []  Inheritance and Polymorphism (64%)
-    - []  Integrating with Standard Python (0%)
-    - []  Best Practices of Class Design (20%)
+    - [X]  Inheritance and Polymorphism (100%)
+    - [X]  Integrating with Standard Python (100%)
+    - [X]  Best Practices of Class Design (100%)
 
 
 - Introduction to Airflow Python (Interactive Course) 
