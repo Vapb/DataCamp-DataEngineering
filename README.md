@@ -48,24 +48,24 @@
 
 
 - Data Processing with Shell (Interactive Course)
-    - []  Downloading Data on the Command Line 
-    - []  Data Cleaning and Munging on the Command Line 
-    - []  Database Operations on the Command Line 
-    - []  Data Pipeline on the Command Line 
+    - []  Downloading Data on the Command Line (0%)
+    - []  Data Cleaning and Munging on the Command Line (0%)
+    - []  Database Operations on the Command Line (0%)
+    - []  Data Pipeline on the Command Line (0%)
 
 
 - Bash Scripting (Interactive Course)
-    - []  From Command-Line to Bash Script 
-    - []  Variables in Bash Scripting 
-    - []  Control Statements in Bash Scripting 
-    - []  Functions and Automation    
+    - []  From Command-Line to Bash Script (0%)
+    - []  Variables in Bash Scripting (0%)
+    - []  Control Statements in Bash Scripting (0%)
+    - []  Functions and Automation  (0%)
 
 
 - [Unit Testing for Data Science Python (Interactive Course)](https://app.datacamp.com/learn/courses/unit-testing-for-data-science-in-python)
-    - []  Unit testing basics 
-    - []  Intermediate unit testing 
-    - []  Test Organization and Execution 
-    - []  Testing Models, Plots and Much More 
+    - [X]  Unit testing basics (100%)
+    - []  Intermediate unit testing (0%) 
+    - []  Test Organization and Execution (24%) 
+    - []  Testing Models, Plots and Much More (7%)
 
 
 - [Object Oriented Programming Python (Interactive Course)](https://app.datacamp.com/learn/courses/object-oriented-programming-in-python)
@@ -76,76 +76,76 @@
 
 
 - Introduction to Airflow Python (Interactive Course) 
-    - []  Intro to Airflow 
-    - []  Implementing Airflow DAGs 
-    - []  Maintaining and monitoring Airflow workflows 
-    - []  Building production pipelines in Airflow 
+    - []  Intro to Airflow (0%)
+    - []  Implementing Airflow DAGs (0%)
+    - []  Maintaining and monitoring Airflow workflows (0%)
+    - []  Building production pipelines in Airflow (0%)
 
 
 - Introduction to Pyspark (Interactive Course)
-    - []  Getting to know PySpark 
-    - []  Manipulating data 
-    - []  Getting started with machine learning pipelines 
-    - []  Model tuning and selection 
+    - []  Getting to know PySpark (0%)
+    - []  Manipulating data (0%)
+    - []  Getting started with machine learning pipelines (0%)
+    - []  Model tuning and selection (0%)
 
 
 - Introduction to AWS Boto Python (Interactive Course)
-    - []  Putting Files in the Cloud! 
-    - []  Sharing Files Securely 
-    - []  Reporting and Notifying! 
-    - []  Pattern Rekognition 
+    - []  Putting Files in the Cloud! (0%)
+    - []  Sharing Files Securely (0%)
+    - []  Reporting and Notifying! (0%)
+    - []  Pattern Rekognition (0%)
 
 
     - []  Data Analysis in SQL (Postgre SQL) ( Test )
 
 
 - Introduction to Relation Databases in SQL (Interactive Course)
-    - []  Your first database 
-    - []  Enforce data consistency with attribute constraints 
-    - []  Uniquely identify records with key constraints 
-    - []  Glue together tables with foreign keys 
+    - []  Your first database (0%)
+    - []  Enforce data consistency with attribute constraints (0%)
+    - []  Uniquely identify records with key constraints (0%)
+    - []  Glue together tables with foreign keys (0%)
 
 
 - Database Design (Interactive Course)
-    - []  Processing, Storing, and Organizing Data 
-    - []  Database Schemas and Normalization 
-    - []  Database Views 
-    - []  Database Management 
+    - []  Processing, Storing, and Organizing Data (0%)
+    - []  Database Schemas and Normalization (0%)
+    - []  Database Views (0%)
+    - []  Database Management (0%)
 
 
 - Introduction to SCALA (Interactive Course)
-    - []  A Scalable Language 
-    - []  Workflows, Functions, Collections 
-    - []  Type Systems, Control Structures, Style 
+    - []  A Scalable Language (0%)
+    - []  Workflows, Functions, Collections (0%)
+    - []  Type Systems, Control Structures, Style (0%)
 
 - Big Data Fundamentals with Pyspark (Interactive Course)
-    - []  Introduction to Big Data analysis with Spark 
-    - []  Programming in PySpark RDD’s 
-    - []  PySpark SQL & DataFrames 
-    - []  Machine Learning with PySpark MLlib 
+    - []  Introduction to Big Data analysis with Spark (0%)
+    - []  Programming in PySpark RDD’s (0%)
+    - []  PySpark SQL & DataFrames (0%)
+    - []  Machine Learning with PySpark MLlib (0%)
 
 
 - Cleaning data with Pyspark (Interactive Course)
-    - []  DataFrame details 
-    - []  Manipulating DataFrames in the real world 
-    - []  Improving Performance 
-    - []  Complex processing and data pipelines 
+    - []  DataFrame details (0%)
+    - []  Manipulating DataFrames in the real world (0%)
+    - []  Improving Performance (0%)
+    - []  Complex processing and data pipelines (0%)
 
 - Introduction to MongoDB in Python (Interactive Course)
-    - []  Flexibly Structured Data 
-    - []  Working with Distinct Values and Sets 
-    - []  Get Only What You Need, and Fast 
-    - []  Aggregation Pipelines: Let the Server Do It For You 
+    - []  Flexibly Structured Data (0%)
+    - []  Working with Distinct Values and Sets (0%)
+    - []  Get Only What You Need, and Fast (0%)
+    - []  Aggregation Pipelines: Let the Server Do It For You (0%)
 
 ---
 
 ## Other Interactive Courses
 
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
-- [ ]  Explore the data and requirements
-- [ ]  Create the ETL foundations
-- [ ]  From raw to clean data
-- [ ]  From clean data to meaningful insights
+- [ ]  Explore the data and requirements (0%)
+- [ ]  Create the ETL foundations (0%)
+- [ ]  From raw to clean data (0%)
+- [ ]  From clean data to meaningful insights (0%)
 
 
 ### [Data Manipulation with pandas (Interactive Course)](https://app.datacamp.com/learn/courses/data-manipulation-with-pandas)
@@ -164,20 +164,20 @@
 
 ### [Joining Data in SQL (Interactive Course)](https://app.datacamp.com/learn/courses/joining-data-in-sql)
 - [x] Introduction to joins (100%)
-- [] Outer joins and cross joins 
-- [] Set theory clauses 
-- [] Subqueries
+- [] Outer joins and cross joins (0%)
+- [] Set theory clauses (0%)
+- [] Subqueries (0%)
 
 
 ### [Streaming Data with AWS Kinesis and Lambda](https://app.datacamp.com/learn/courses/streaming-data-with-aws-kinesis-and-lambda)
-- [ ] Streaming in the cloud
-- [ ] Going serverless 
-- [ ] Analyzing streaming data 
-- [ ] Monitoring and visualizing streaming data 
+- [ ] Streaming in the cloud (0%)
+- [ ] Going serverless (0%)
+- [ ] Analyzing streaming data (0%)
+- [ ] Monitoring and visualizing streaming data (0%)
 
 
 ### [AWS Cloud Concepts](https://app.datacamp.com/learn/courses/aws-cloud-concepts)
-- [ ] Introduction to AWS 
-- [ ] AWS value proposition and economics 
-- [ ] Overview of AWS core services 
-- [ ] The Well-Architected Framework 
+- [ ] Introduction to AWS (0%)
+- [ ] AWS value proposition and economics (0%)
+- [ ] Overview of AWS core services (0%)
+- [ ] The Well-Architected Framework (0%)
