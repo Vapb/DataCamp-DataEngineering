@@ -63,8 +63,8 @@
 
 - [Unit Testing for Data Science Python (Interactive Course)](https://app.datacamp.com/learn/courses/unit-testing-for-data-science-in-python)
     - [X]  Unit testing basics (100%)
-    - []  Intermediate unit testing (0%) 
-    - []  Test Organization and Execution (24%) 
+    - [X]  Intermediate unit testing (100%) 
+    - []  Test Organization and Execution (34%) 
     - []  Testing Models, Plots and Much More (7%)
 
 
