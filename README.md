@@ -15,7 +15,7 @@
     - [x]  Introduction to Data Engineering (100%)
     - [x]  Data engineering toolbox (100%)
     - [x]  Extract, Transform and Load (ETL) (100%)
-    - []  Case Study: DataCamp
+    - [X]  Case Study: DataCamp (100%)
 
 
 - [Streamlined Data ingestion with pandas (Interactive Course)](https://app.datacamp.com/learn/courses/streamlined-data-ingestion-with-pandas)
