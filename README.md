@@ -7,8 +7,7 @@
     - [x]  Storing data (100%)
     - [x]  Moving and processing data (100%)
 
-
-    - [X]  Python Assessment ( Test )
+ - [X]  Python Assessment ( Test )
 
 
 - [Introduction to Data Engineering (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-data-engineering)
@@ -96,7 +95,7 @@
     - []  Pattern Rekognition (0%)
 
 
-    - []  Data Analysis in SQL (Postgre SQL) ( Test )
+ - []  Data Analysis in SQL (Postgre SQL) ( Test )
 
 
 - Introduction to Relation Databases in SQL (Interactive Course)
