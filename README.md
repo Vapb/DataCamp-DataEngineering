@@ -163,9 +163,9 @@
 
 ### [Joining Data in SQL (Interactive Course)](https://app.datacamp.com/learn/courses/joining-data-in-sql)
 - [x] Introduction to joins (100%)
-- [] Outer joins and cross joins (0%)
-- [] Set theory clauses (0%)
-- [] Subqueries (0%)
+- [X] Outer joins and cross joins (100%)
+- [] Set theory clauses (40%)
+- [] Subqueries (8%)
 
 
 ### [Streaming Data with AWS Kinesis and Lambda](https://app.datacamp.com/learn/courses/streaming-data-with-aws-kinesis-and-lambda)

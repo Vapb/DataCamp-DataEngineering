@@ -38,3 +38,24 @@ CASE
 FROM countries;
 
 -- INto 
+
+
+-- Cross Joins
+
+
+-- Union
+SELECT *
+FROM economies2010
+	UNION
+SELECT *
+FROM economies2015
+ORDER BY code, year;
+
+-- Union ALL
+-- Select fields
+SELECT code, year
+FROM economies
+    UNION ALL
+SELECT country_code, year
+FROM populations
+ORDER BY code, year;
