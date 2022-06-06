@@ -41,3 +41,7 @@ FROM university_professors;
 
 -- Deleting table
 DROP TABLE university_professors;
+
+-- Casting
+SELECT transaction_date, amount + CAST(fee as INT) AS net_amount 
+FROM transactions;
