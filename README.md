@@ -99,7 +99,7 @@
 
 
 - Introduction to Relation Databases in SQL (Interactive Course)
-    - []  Your first database (0%)
+    - [x]  Your first database (100%)
     - []  Enforce data consistency with attribute constraints (0%)
     - []  Uniquely identify records with key constraints (0%)
     - []  Glue together tables with foreign keys (0%)
@@ -164,8 +164,8 @@
 ### [Joining Data in SQL (Interactive Course)](https://app.datacamp.com/learn/courses/joining-data-in-sql)
 - [x] Introduction to joins (100%)
 - [X] Outer joins and cross joins (100%)
-- [] Set theory clauses (40%)
-- [] Subqueries (8%)
+- [x] Set theory clauses (100%)
+- [x] Subqueries (100%)
 
 
 ### [Streaming Data with AWS Kinesis and Lambda](https://app.datacamp.com/learn/courses/streaming-data-with-aws-kinesis-and-lambda)
