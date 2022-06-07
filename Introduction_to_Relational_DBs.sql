@@ -45,3 +45,23 @@ DROP TABLE university_professors;
 -- Casting
 SELECT transaction_date, amount + CAST(fee as INT) AS net_amount 
 FROM transactions;
+
+-- Change Type of column after created
+ALTER TABLE professors 
+ALTER COLUMN firstname 
+TYPE varchar(16);
+
+-- Convert the values in firstname to a max. of 16 characters
+ALTER TABLE professors 
+ALTER COLUMN firstname 
+TYPE varchar(16)
+USING SUBSTRING(firstname FROM 1 FOR 16);
+
+-- ADD NOT NULL CONSTRAINT
+ALTER TABLE professors
+ALTER COLUMN firstname
+SET NOT NULL;
+
+-- ADD UNIQUE CONSTRAINT
+ALTER TABLE universities
+ADD CONSTRAINT university_shortname_unq UNIQUE(university_shortname);
