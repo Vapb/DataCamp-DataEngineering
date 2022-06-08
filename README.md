@@ -46,14 +46,14 @@
     - [x]  Creating new tools (100%)
 
 
-- Data Processing with Shell (Interactive Course)
+- [Data Processing with Shell (Interactive Course)](https://app.datacamp.com/learn/courses/data-processing-in-shell)
     - []  Downloading Data on the Command Line (0%)
     - []  Data Cleaning and Munging on the Command Line (0%)
     - []  Database Operations on the Command Line (0%)
     - []  Data Pipeline on the Command Line (0%)
 
 
-- Bash Scripting (Interactive Course)
+- [Bash Scripting (Interactive Course)](https://app.datacamp.com/learn/courses/data-processing-in-shell)
     - []  From Command-Line to Bash Script (0%)
     - []  Variables in Bash Scripting (0%)
     - []  Control Statements in Bash Scripting (0%)
@@ -74,21 +74,21 @@
     - [X]  Best Practices of Class Design (100%)
 
 
-- Introduction to Airflow Python (Interactive Course) 
+- [Introduction to Airflow Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-airflow-in-python)
     - []  Intro to Airflow (0%)
     - []  Implementing Airflow DAGs (0%)
     - []  Maintaining and monitoring Airflow workflows (0%)
     - []  Building production pipelines in Airflow (0%)
 
 
-- Introduction to Pyspark (Interactive Course)
+- [Introduction to Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-pyspark)
     - []  Getting to know PySpark (0%)
     - []  Manipulating data (0%)
     - []  Getting started with machine learning pipelines (0%)
     - []  Model tuning and selection (0%)
 
 
-- Introduction to AWS Boto Python (Interactive Course)
+- [Introduction to AWS Boto Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-aws-boto-in-python)
     - []  Putting Files in the Cloud! (0%)
     - []  Sharing Files Securely (0%)
     - []  Reporting and Notifying! (0%)
@@ -98,39 +98,39 @@
  - []  Data Analysis in SQL (Postgre SQL) ( Test )
 
 
-- Introduction to Relation Databases in SQL (Interactive Course)
+- [Introduction to Relation Databases in SQL (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-relational-databases-in-sql)
     - [x]  Your first database (100%)
     - [X]  Enforce data consistency with attribute constraints (100%)
     - [X]  Uniquely identify records with key constraints (100%)
     - [X]  Glue together tables with foreign keys (100%)
 
 
-- Database Design (Interactive Course)
+- [Database Design (Interactive Course)](https://app.datacamp.com/learn/courses/database-design)
     - []  Processing, Storing, and Organizing Data (0%)
     - []  Database Schemas and Normalization (0%)
     - []  Database Views (0%)
     - []  Database Management (0%)
 
 
-- Introduction to SCALA (Interactive Course)
+- [Introduction to SCALA (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-scala)
     - []  A Scalable Language (0%)
     - []  Workflows, Functions, Collections (0%)
     - []  Type Systems, Control Structures, Style (0%)
 
-- Big Data Fundamentals with Pyspark (Interactive Course)
+- [Big Data Fundamentals with Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/big-data-fundamentals-with-pyspark)
     - []  Introduction to Big Data analysis with Spark (0%)
     - []  Programming in PySpark RDD’s (0%)
     - []  PySpark SQL & DataFrames (0%)
     - []  Machine Learning with PySpark MLlib (0%)
 
 
-- Cleaning data with Pyspark (Interactive Course)
+- [Cleaning data with Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/cleaning-data-with-pyspark)
     - []  DataFrame details (0%)
     - []  Manipulating DataFrames in the real world (0%)
     - []  Improving Performance (0%)
     - []  Complex processing and data pipelines (0%)
 
-- Introduction to MongoDB in Python (Interactive Course)
+- [Introduction to MongoDB in Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-using-mongodb-for-data-science-with-python)
     - []  Flexibly Structured Data (0%)
     - []  Working with Distinct Values and Sets (0%)
     - []  Get Only What You Need, and Fast (0%)
