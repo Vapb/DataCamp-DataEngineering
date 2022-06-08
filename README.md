@@ -101,7 +101,7 @@
 - Introduction to Relation Databases in SQL (Interactive Course)
     - [x]  Your first database (100%)
     - [X]  Enforce data consistency with attribute constraints (100%)
-    - []  Uniquely identify records with key constraints (0%)
+    - [X]  Uniquely identify records with key constraints (100%)
     - []  Glue together tables with foreign keys (0%)
 
 

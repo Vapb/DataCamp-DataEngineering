@@ -65,3 +65,11 @@ SET NOT NULL;
 -- ADD UNIQUE CONSTRAINT
 ALTER TABLE universities
 ADD CONSTRAINT university_shortname_unq UNIQUE(university_shortname);
+
+-- ADD PRIMARY KEY CONSTRAINT
+ALTER TABLE organizations
+ADD CONSTRAINT organization_pk PRIMARY KEY (id);
+
+-- ADD SERIAL ID COLUMN
+ALTER TABLE professors 
+ADD COLUMN id serial;
