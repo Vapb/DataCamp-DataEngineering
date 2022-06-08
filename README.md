@@ -102,7 +102,7 @@
     - [x]  Your first database (100%)
     - [X]  Enforce data consistency with attribute constraints (100%)
     - [X]  Uniquely identify records with key constraints (100%)
-    - []  Glue together tables with foreign keys (0%)
+    - [X]  Glue together tables with foreign keys (100%)
 
 
 - Database Design (Interactive Course)

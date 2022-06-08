@@ -73,3 +73,13 @@ ADD CONSTRAINT organization_pk PRIMARY KEY (id);
 -- ADD SERIAL ID COLUMN
 ALTER TABLE professors 
 ADD COLUMN id serial;
+
+-- ADD FOREING KEY
+ALTER TABLE professors 
+ADD CONSTRAINT professors_fkey FOREIGN KEY (university_id) REFERENCES universities (id);
+
+-- Other Example to populate tablecolumn
+UPDATE affiliations
+SET professor_id = professors.id
+FROM professors
+WHERE affiliations.firstname = professors.firstname AND affiliations.lastname = professors.lastname;
