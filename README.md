@@ -191,5 +191,5 @@
 ### [Joining Data with pandas](https://app.datacamp.com/learn/courses/joining-data-with-pandas)
 - [x] Data Merging Basics (100%)
 - [X] Merging Tables With Different Join Types (100%)
-- [] Advanced Merging and Concatenating (0%)
+- [] Advanced Merging and Concatenating (45%)
 - []  Merging Ordered and Time-Series Data (0%)
