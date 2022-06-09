@@ -147,13 +147,6 @@
 - [ ]  From clean data to meaningful insights (0%)
 
 
-### [Data Manipulation with pandas (Interactive Course)](https://app.datacamp.com/learn/courses/data-manipulation-with-pandas)
-- [x]  Transforming DataFrames (100%)
-- [x]  Aggregating DataFrames (100%)
-- [x]  Slicing and Indexing DataFrames (100%)
-- [x]  Creating and Visualizing DataFrames (100%)
-
-
 ### [Introduction to SQL (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-sql) 
 - [x] Selecting columns (100%)
 - [x] Filtering rows (100%)
@@ -180,3 +173,23 @@
 - [ ] AWS value proposition and economics (0%)
 - [ ] Overview of AWS core services (0%)
 - [ ] The Well-Architected Framework (0%)
+
+
+### [Building Data Engineering Pipelines in Python](https://app.datacamp.com/learn/courses/building-data-engineering-pipelines-in-python)
+- [ ] Ingesting Data (0%)
+- [ ] Creating a data transformation pipeline with PySpark (0%)
+- [ ] Testing your data pipeline (0%)
+- [ ] Managing and orchestrating a workflow (0%)
+
+
+### [Data Manipulation with pandas (Interactive Course)](https://app.datacamp.com/learn/courses/data-manipulation-with-pandas)
+- [x]  Transforming DataFrames (100%)
+- [x]  Aggregating DataFrames (100%)
+- [x]  Slicing and Indexing DataFrames (100%)
+- [x]  Creating and Visualizing DataFrames (100%)
+
+### [Joining Data with pandas](https://app.datacamp.com/learn/courses/joining-data-with-pandas)
+- [x] Data Merging Basics (100%)
+- [X] Merging Tables With Different Join Types (100%)
+- [] Advanced Merging and Concatenating (0%)
+- []  Merging Ordered and Time-Series Data (0%)
