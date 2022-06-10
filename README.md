@@ -140,13 +140,6 @@
 
 ## Other Interactive Courses
 
-### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
-- [ ]  Explore the data and requirements (0%)
-- [ ]  Create the ETL foundations (0%)
-- [ ]  From raw to clean data (0%)
-- [ ]  From clean data to meaningful insights (0%)
-
-
 ### [Introduction to SQL (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-sql) 
 - [x] Selecting columns (100%)
 - [x] Filtering rows (100%)
@@ -161,11 +154,11 @@
 - [x] Subqueries (100%)
 
 
-### [Streaming Data with AWS Kinesis and Lambda](https://app.datacamp.com/learn/courses/streaming-data-with-aws-kinesis-and-lambda)
-- [ ] Streaming in the cloud (0%)
-- [ ] Going serverless (0%)
-- [ ] Analyzing streaming data (0%)
-- [ ] Monitoring and visualizing streaming data (0%)
+### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
+- [ ]  Explore the data and requirements (0%)
+- [ ]  Create the ETL foundations (0%)
+- [ ]  From raw to clean data (0%)
+- [ ]  From clean data to meaningful insights (0%)
 
 
 ### [AWS Cloud Concepts](https://app.datacamp.com/learn/courses/aws-cloud-concepts)
@@ -173,6 +166,13 @@
 - [ ] AWS value proposition and economics (0%)
 - [ ] Overview of AWS core services (0%)
 - [ ] The Well-Architected Framework (0%)
+
+
+### [Streaming Data with AWS Kinesis and Lambda](https://app.datacamp.com/learn/courses/streaming-data-with-aws-kinesis-and-lambda)
+- [ ] Streaming in the cloud (0%)
+- [ ] Going serverless (0%)
+- [ ] Analyzing streaming data (0%)
+- [ ] Monitoring and visualizing streaming data (0%)
 
 
 ### [Building Data Engineering Pipelines in Python](https://app.datacamp.com/learn/courses/building-data-engineering-pipelines-in-python)
