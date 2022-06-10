@@ -192,4 +192,4 @@
 - [x] Data Merging Basics (100%)
 - [X] Merging Tables With Different Join Types (100%)
 - [X] Advanced Merging and Concatenating (100%)
-- []  Merging Ordered and Time-Series Data (0%)
+- [X]  Merging Ordered and Time-Series Data (100%)
