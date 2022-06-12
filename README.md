@@ -49,7 +49,7 @@
 - [Data Processing with Shell (Interactive Course)](https://app.datacamp.com/learn/courses/data-processing-in-shell)
     - [X]  Downloading Data on the Command Line (100%)
     - [X]  Data Cleaning and Munging on the Command Line (100%)
-    - []  Database Operations on the Command Line (0%)
+    - [X]  Database Operations on the Command Line (100%)
     - []  Data Pipeline on the Command Line (0%)
 
 
