@@ -154,6 +154,13 @@
 - [x] Subqueries (100%)
 
 
+### [Intermediate SQL](https://app.datacamp.com/learn/courses/intermediate-sql)
+- [] We'll take the CASE (0%)
+- [] Short and Simple Subqueries (0%)
+- [] Correlated Queries, Nested Queries, and Common Table Expressions (0%)
+- [] Window Functions (0%)
+
+
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
 - [ ]  Explore the data and requirements (0%)
 - [ ]  Create the ETL foundations (0%)
