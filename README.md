@@ -54,7 +54,7 @@
 
 
 - [Bash Scripting (Interactive Course)](https://app.datacamp.com/learn/courses/data-processing-in-shell)
-    - []  From Command-Line to Bash Script (0%)
+    - [X]  From Command-Line to Bash Script (100%)
     - []  Variables in Bash Scripting (0%)
     - []  Control Statements in Bash Scripting (0%)
     - []  Functions and Automation  (0%)
