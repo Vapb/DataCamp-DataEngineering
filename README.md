@@ -57,7 +57,7 @@
     - [X]  From Command-Line to Bash Script (100%)
     - [X]  Variables in Bash Scripting (100%)
     - [X]  Control Statements in Bash Scripting (100%)
-    - []  Functions and Automation  (0%)
+    - [X]  Functions and Automation  (100%)
 
 
 - [Unit Testing for Data Science Python (Interactive Course)](https://app.datacamp.com/learn/courses/unit-testing-for-data-science-in-python)
