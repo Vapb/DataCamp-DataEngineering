@@ -1,0 +1,807 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Introduction to Bash Scripting</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="811f1917-9a0e-44fa-8829-21522571a730" class="page sans"><header><h1 class="page-title"><strong>Introduction to Bash Scripting</strong></h1></header><div class="page-body"><h3 id="f5c2d369-88b6-406c-bed1-e8e6605294a5" class=""><strong>From Command-Line to Bash Script</strong></h3><p id="98efb241-7617-40d0-b951-8b6e594e10ec" class="">A script usually starts with a <code>#!/usr/bash</code> but it depends in the location of your bash interpreter. To find it use comand <code>which bash</code>.</p><p id="fd51e2e1-e266-49ad-9d18-b2ed877ebe34" class=""><code>bash script.sh</code> (Run bash script)</p><p id="6a2122e5-8cb1-4ab7-9bff-b96561770927" class=""><code>./script.sh</code> (Run bash script if starts with #!…)</p><pre id="228cc029-e317-4d9d-b67d-c2ff7292d55e" class="code"><code>#!/usr/bash
+echo &quot;Hello World&quot;
+echo &quot;Goodbye World&quot;</code></pre><p id="88acc60c-bd95-4f7b-95d4-a679de43f1b2" class=""><code>sed &#x27;s/Marcus/Marcos/&#x27; nomes.txt</code> (Substituir ocorrencias ‘Marcus com Marcos’)</p><p id="0086c3c4-0034-48db-a1bd-9c7f073c64a7" class=""><code>sed &#x27;s/Marcus/Marcos/g&#x27; nomes.txt</code> (Substituir todas as ocorrencias ‘Marcus com Marcos’)</p><p id="6937bb74-1a69-491c-9fa8-e5d6619485af" class=""><code>sed &#x27;3 s/Marcus/Marcos/&#x27; nomes.txt</code> (Substituir linha 3)</p><pre id="b7a5acdf-1dd2-423d-b69e-5d5a3cd7709f" class="code"><code>#!/usr/bash
+echo $1
+echo $2
+echo $@
+echo &quot;There are &quot; $# &quot;arguments&quot;</code></pre><p id="89137fe6-3832-4566-b6d3-3ab09f7f2006" class="">Arguments in bash script<div class="indented"><p id="390d350a-5c45-49aa-8cb6-f5013adbe9a7" class=""><code>$1</code> First Argument.</p><p id="07560709-1246-42c2-b9bd-db4835b7d503" class=""><code>$@</code> and <code>$*</code> All Arguments.</p><p id="e35b6a3f-0307-41e7-8681-057d580a7b0f" class=""><code>$#</code> The number of arguments</p></div></p><p id="f2db537e-2f9d-4474-84ab-606e6a49ad3f" class=""><code>bash args.sh one two three four five</code> (Executar Script acima)</p><pre id="1fec5bfd-1976-44e7-8ec8-22ca8b4d3a01" class="code"><code># Echo the first ARGV argument
+echo $1 
+
+# Cat all the files
+# Then pipe to grep using the first ARGV argument
+# Then write out to a named csv using the first ARGV argument
+cat hire_data/* | grep &quot;$1&quot; &gt; &quot;$1&quot;.csv</code></pre><p id="c5abe62e-82c2-4451-8c1d-e3549e867a8e" class="">
+</p><h3 id="a5c32394-20a0-42ed-834c-02382fd1d714" class=""><strong>Variables in Bash Scripting</strong></h3><p id="167e73e0-a7f7-4de5-a6fe-98d51c269bbc" class=""><code>var1=moon</code> (Variable Creation)</p><p id="9188adb5-4d16-4ea7-a4f3-1eb9517625f7" class=""><code>echo $var1</code></p><p id="e2b56a7a-e872-43f7-9e05-c019523490de" class="">Single quotes <code>‘’</code>→ shell interprets literally</p><pre id="f7b18c70-62f8-465c-bdd5-94cc171876ef" class="code"><code>var=&#x27;CAIO&#x27;
+var_singlequote=&#x27;look its $var&#x27;
+echo $var_singlequote
+## Return -&gt; &#x27;look its $var&#x27;</code></pre><p id="f97c2688-713b-4329-8be9-be3d0cfc7b89" class="">Double quotes <code>“”</code> → shell interprets literally but interprets $ and ``</p><pre id="3779b69c-a637-4d29-8da0-e0b235deab5e" class="code"><code>var=&#x27;CAIO&#x27;
+var_doublequote=&quot;look its $var&quot;
+echo $var_doublequote
+## Return -&gt; &#x27;look its CAIO&#x27;</code></pre><p id="0e84e18a-4aa8-438b-8d3c-ea144ab2ca1c" class="">Backticks <code>``</code> -&gt; shell runs comand and capture stdout &quot;Shell Inside a shell&quot;</p><p id="1a179c3b-c3af-4803-bd76-81d2a0b1af52" class=""><code>echo “The date is `date` ”</code> (Returns string with date comand inside)</p><p id="3d751d46-6384-46d8-a53e-ec7198ca058e" class="">Parenthis method <code>$()</code> → shell inside shell</p><p id="99b394fe-6ab2-46cd-8a48-4b891a1add18" class=""><code>echo “The date is $(date) ”</code> (Returns string with date comand inside)</p><p id="6215c5b6-3d09-4b12-8739-f5fbeaf84458" class=""><code>bc</code> (Basic calculator)<div class="indented"><p id="aff004a4-10c7-49f2-a8df-d3fef5004479" class=""><mark class="highlight-teal"><code>echo “7 + 2.5” | bc</code></mark><mark class="highlight-teal"> </mark>(A pipe for basic calculator)</p><p id="568a7fc6-9f9c-46d4-9c12-bf25b644c02a" class=""><mark class="highlight-teal"><code>echo &quot; scale=3; 10 / 3” | bc</code></mark> (A pipe that return with 3 decimal places)</p><p id="64532bf5-3381-43f7-8b16-1c01257dadda" class=""><mark class="highlight-teal"><code>echo “The total score  is $(echo “$model1 + $model2” | bc)”</code></mark><mark class="highlight-teal"> </mark>(A shell inside shell example)</p></div></p><p id="97f328e1-d783-42bc-8b8b-3d28b9ecec3c" class="">Exercise 1 Convert <strong>Fahrenheit to Celsius</strong></p><pre id="a0033935-1f3d-4d6f-8f6c-0676bac6c303" class="code"><code># Get first ARGV into variable
+temp_f=$1
+
+# Subtract 32
+temp_f2=$(echo &quot;scale=2; $temp_f - 32&quot; | bc)
+
+# Multiply by 5/9
+temp_c=$(echo &quot;scale=2; $temp_f2 * 5 / 9&quot; | bc)
+
+# Print the celsius temp
+echo $temp_c</code></pre><p id="23537126-e77c-4aea-bf62-d6c015503d42" class="">Exercise 2 Extracting data</p><pre id="9de7c347-010e-47b1-84fa-75e47bdfc6c7" class="code"><code># Create three variables from the temp data files&#x27; contents
+temp_a=$(cat temps/region_A)
+temp_b=$(cat temps/region_B)
+temp_c=$(cat temps/region_C)
+
+# Print out the three variables
+echo &quot;The three temperatures were $temp_a, $temp_b, and $temp_c&quot;</code></pre><p id="b6c8419b-fd4f-40f6-aaf3-009f68d79a82" class="">Arrays in bash<div class="indented"><p id="3fdf16dd-f141-4cf5-b398-e9158f445849" class=""><mark class="highlight-teal"><code>array_example=(1 2 3)</code></mark> (Example of array in bash, arrays dont use ,)</p><p id="b8420f10-948c-4dda-95dd-c0f0b49f8bff" class=""><mark class="highlight-teal"><code>declare -a array_example</code></mark> (Creating a empty array)</p><p id="b9f346f8-f4ef-47ec-a6ad-18a19e113fce" class=""><mark class="highlight-teal"><code>echo ${array[@]}</code></mark> returns all array</p><p id="692ab319-da2e-42c5-8d3d-2c6f5a9a303c" class=""><mark class="highlight-teal"><code>#array[@]</code></mark> returns the length</p><p id="d95bedf0-a5fb-43df-b97e-4cadd2913a80" class=""><mark class="highlight-teal"><code>echo ${my_array[3]}</code></mark> (Returns the third element of my_array)</p><p id="778f2b98-b313-4d48-8b1b-f775e47d22b2" class=""><mark class="highlight-teal"><code>echo ${my_array[@]:3:2}</code></mark> (Silicing array example N→ Start index , M→ Number of elements to return) </p><p id="ef21850f-958c-4db3-851d-d4f06649b6c4" class=""><code><mark class="highlight-teal">my_array[0]=0</mark></code> (Overwriting example)</p><p id="a21ded4a-729b-4e4a-8ed8-93cc3470dd77" class=""><code><mark class="highlight-teal">my_array+=(11)</mark></code> (Appending example)</p></div></p><pre id="9783494a-e9d0-48cd-a702-5fbcd67d430d" class="code"><code>my_array=(1 2 3 4 5)
+my_array[0]=0
+echo ${my_array[0]}
+# Returns 0. Dont neeed to use $ when manipulating one position
+my_array+=(10)
+# appending example</code></pre><p id="3b12f835-4ba5-4b16-9068-e38ac263f095" class="">Associative Arrays in Bash (Python Dictionary)<div class="indented"><p id="82e004f2-8161-4d6a-bb21-a0a62cbba9c8" class=""><mark class="highlight-teal"><code>declare -A my_array</code></mark> (Creating an empty array)</p><p id="91cb254e-0479-43f7-88b3-73133e56b2e1" class=""><mark class="highlight-teal"><code>declare -A my_array=([city_name]=”New York” [population]=1000000)</code></mark><mark class="highlight-teal"> </mark>(Creating array with items)</p><p id="2e947dcb-4317-4f1a-a0e0-609993edcd69" class=""><mark class="highlight-teal"><code>echo ${!my_array[@]}</code></mark> (Returns all the keys)</p><p id="4413f5d5-7f76-49b1-9e11-318d9d1f8206" class=""><code><mark class="highlight-teal">my_array[”key”]=”value”</mark></code><mark class="highlight-teal"> </mark>(Adding elements)</p></div></p><p id="571aee19-89d2-402a-958e-8f06d50c97e9" class="">Exercise 3</p><pre id="9dd59798-7401-4f13-9fe2-395f8c40ad3c" class="code"><code># Create variables from the temperature data files
+temp_b=&quot;$(cat temps/region_B)&quot;
+temp_c=&quot;$(cat temps/region_C)&quot;
+
+# Create an array with these variables as elements
+region_temps=($temp_b $temp_c)
+
+# Call an external program to get average temperature
+average_temp=$(echo &quot;scale=2; (${region_temps[0]} + ${region_temps[1]}) / 2&quot; | bc)
+
+# Append to array
+region_temps+=($average_temp)
+
+# Print out the whole array
+echo ${region_temps[@]}</code></pre><p id="599a7ebf-9d15-4d71-b798-79538df9d4b3" class="">
+</p><h3 id="80edfa3e-a564-42be-914d-c1cf9054de74" class=""><strong>Control Statements in Bash Scripting</strong></h3><p id="395464db-7a85-4224-99a2-0815aa86f550" class="">IF<div class="indented"><pre id="6749d253-d9b2-4fd4-b940-80b94d52e75a" class="code"><code># BASIC IF STRUCTURE
+if [ CONDITION ]; then
+	# Some cool code
+else
+	# Other cool code
+fi</code></pre><p id="a9ef0f7b-0eec-4ca5-bb2a-e11ba9ef5588" class="">AND → <code>&amp;&amp;</code></p><p id="ed42e0f2-b7ee-4631-b1e8-ab72992f68db" class="">OR → <code>||</code></p><p id="72bc1a7b-4a18-4ed7-9ddf-bc74a188092d" class="">Exercise 1</p><pre id="291d8833-4c93-4247-b271-d2aa5e1c569b" class="code"><code># Extract Accuracy from first ARGV element
+accuracy=$(grep Accuracy $1 | sed &#x27;s/.* //&#x27;)
+
+# Conditionally move into good_models folder
+if [ $accuracy -gt 90 ]; then
+    mv $1 good_models/
+fi
+
+# Conditionally move into bad_models folder
+if [ $accuracy -lt 90 ]; then
+    mv $1 bad_models/
+fi</code></pre></div></p><p id="07647053-2042-4300-9b79-8086299142d3" class="">Loops<div class="indented"><p id="e4a595a8-735f-44dd-8ccd-6122c3ed81bf" class="">
+</p><pre id="3c29b11b-7a56-4b58-b47f-411f289d3a78" class="code"><code>for x in 1 2 3
+do
+	echo $x
+done</code></pre><p id="1f5bbb04-0fa5-43e9-a11d-d553b118f55a" class=""><mark class="highlight-teal"><code>{START..STOP..INCREMENT}</code></mark><mark class="highlight-teal"> </mark>Other way of creating loops in bash</p><p id="02683faf-5149-4c7c-bbfc-59e2977f9980" class=""><mark class="highlight-teal"><code>for x in {0..10..2}</code></mark><mark class="highlight-teal"> </mark>Example of usage</p><p id="4e38ece6-f6aa-48ce-972e-3fdd285d3048" class=""><mark class="highlight-teal"><code>((START;CONDITION;INCREMENT))</code></mark><mark class="highlight-teal"> </mark>Other way</p><p id="a1f1b17a-f4d3-4643-82d2-0db4d5af9f03" class=""><mark class="highlight-teal"><code>for x in ((x=2;x&lt;=4;x+=2))</code></mark> Example of usage</p><p id="d82c50aa-be05-4790-9783-6e9e7135d379" class=""><code><mark class="highlight-teal">for file in books/*</mark></code>  Glob Expansion</p><p id="3332d728-9104-48ec-ba0e-1d68ad47b6fd" class=""><code><mark class="highlight-teal">for file in $(ls books/ | grep -i ‘air’)</mark></code><mark class="highlight-teal"> </mark>Shell inside shell</p><pre id="4fabe6c6-ecc6-406c-995a-dc75ec1087d9" class="code"><code>x = 0
+while [x &lt;= 10];
+do
+	echo $x
+	((x+=1))
+done</code></pre><p id="c6ccede9-ed8b-4c6b-ac24-64736068b7e5" class="">Exercise 1</p><pre id="09689b3b-8f12-4c00-9bda-ff5b60f5afa1" class="code"><code># Create a FOR statement on files in directory
+for file in robs_files/*.py
+do  
+    # Create IF statement using grep
+    if grep -q &#x27;RandomForestClassifier&#x27; $file ; then
+        # Move wanted files to to_keep/ folder
+        mv $file to_keep/
+    fi
+done</code></pre></div></p><p id="b6dbc742-9001-47aa-99ad-a4114310d7e4" class="">CASE statements<div class="indented"><pre id="f929209d-542f-48fb-9f37-8d28e0c980e3" class="code"><code>case &#x27;stringVar&#x27; in
+	patern1)
+	command1;;
+	patern2)
+	command2;;
+	*) # Defaul command
+	command3;;
+esac</code></pre><p id="c1c75246-b468-40cf-98ee-26843e4c8bec" class="">Exercise</p><pre id="2fe943d3-3340-47e2-8400-8f6e820afaf8" class="code"><code># Use a FOR loop for each file in &#x27;model_out/&#x27;
+for file in model_out/*
+do
+    # Create a CASE statement for each file&#x27;s contents
+    case $(cat $file) in
+      # Match on tree and non-tree models
+      *&quot;Random Forest&quot;*|*GBM*|*XGBoost*)
+      mv $file tree_models/ ;;
+      *KNN*|*Logistic*)
+      rm $file ;;
+      # Create a default
+      *) 
+      echo &quot;Unknown model in $file&quot; ;;
+    esac
+done</code></pre></div></p><p id="49c57dcf-89d6-48c4-9d09-5a819ec80a55" class="">
+</p><h3 id="13a1258d-e05f-4946-8e77-25e3495b1b9f" class=""><strong>Functions and Automation</strong></h3><pre id="a012d118-8748-47bc-ab9c-d5ec76bdb8d7" class="code"><code>function_name () {
+	#function code
+	return #something cool
+}
+
+# Other way to create functions
+
+function function_name {
+	#function code
+	return # Something cool
+}
+
+function_name  #calling function</code></pre><p id="30902178-ecfc-4d78-a67d-434d1d99e95e" class="">In bash all variables by default are global. To use scope use <code>local</code></p><pre id="9df7f10b-69a3-4a4b-8b5a-f005436d4314" class="code"><code>function convert_temp {
+	echo $(echo &quot;scale=2; ($1 - 32) * 5 / 9&quot; | bc)
+}
+converted=$(convert_temp 30)
+echo &quot;30F in Celsius is $converted C&quot;</code></pre><p id="906670be-f26a-48ea-8f61-f40a7b229f69" class="">Exercise 1</p><pre id="997e8371-45b8-4860-bfbd-b02b5b565bd9" class="code"><code># Create a function 
+function return_percentage () {
+
+  # Calculate the percentage using bc
+  percent=$(echo &quot;scale=2; 100 * $1 / $2&quot; | bc)
+
+  # Return the calculated percentage
+  echo $percent
+}
+
+# Call the function with 456 and 632 and echo the result
+return_test=$(return_percentage 456 632)
+echo &quot;456 out of 632 as a percent is $return_test%&quot;</code></pre><p id="b403ca1d-2ab9-415d-a69f-912c6455e6a5" class=""><code>cronjobs</code><div class="indented"><p id="cac39d39-c995-4bd3-ac66-0f32468b71c7" class=""><mark class="highlight-teal"><code>crontab -l</code></mark> (List all cronjobs)</p><p id="932a5471-ee68-4b50-b5e1-ce3510bfbbc0" class=""><mark class="highlight-teal"><code>5 1 * * * bash myscripy.sh</code></mark> (Run everyday at 1:05 AM)</p><p id="838eecbf-206f-4a99-a87e-f1314e4ce8af" class=""><mark class="highlight-teal"><code>15 14 * * 7 bash myscripy.sh</code></mark> (Run Sunday at 14:15 PM)</p><p id="5804c1c5-3e9d-4074-a6a7-36ce4145b6da" class=""><mark class="highlight-teal"><code>15,30,45 * * * * bash myscripy.sh</code></mark> (Run 15,30,45 minutes every hour)</p><p id="34f8393a-adf6-4cf6-8f48-74133be711d3" class=""><mark class="highlight-teal"><code>*/15 * * * * bash myscripy.sh</code></mark> (Run every 15 minutes)</p><p id="951201ea-3753-4630-ab01-637017828362" class=""><code><mark class="highlight-teal">crontab -e</mark></code> (Edit cronjobs)</p></div></p></div></article></body></html>
