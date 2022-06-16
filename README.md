@@ -113,7 +113,7 @@
 
 
 - [Introduction to SCALA (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-scala)
-    - []  A Scalable Language (0%)
+    - []  A Scalable Language (73%)
     - []  Workflows, Functions, Collections (0%)
     - []  Type Systems, Control Structures, Style (0%)
 
