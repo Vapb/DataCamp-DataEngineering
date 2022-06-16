@@ -1,0 +1,672 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Data Processing in Shell</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="017617a1-98d6-4aa6-9d57-a8d7c0757fb9" class="page sans"><header><h1 class="page-title"><strong>Data Processing in Shell</strong></h1></header><div class="page-body"><h3 id="d088a903-883c-4ae6-a818-499277b8a006" class=""><strong>Downloading Data on the Command Line</strong></h3><p id="229299ef-1af5-472c-b74e-7c322f4f09cc" class=""><code>curl</code> (Get data from urls)<div class="indented"><p id="b8b5ea23-b372-4860-bcca-9a26dc99feee" class=""><mark class="highlight-teal"><code>curl -O https://websitename.com/datafilename.txt</code></mark><mark class="highlight-teal">  </mark>(Get data and save with url name)</p><p id="049a75d8-c68d-4568-8e4f-5ca78d9c6ada" class=""><mark class="highlight-teal"><code>curl -o renamedatafile.txt https://websitename.com/datafilename.txt</code></mark><mark class="highlight-teal"> </mark>(Get data with diferent file name)</p><p id="19f574c6-4886-4665-bb56-f7b1bd64ceb3" class=""><mark class="highlight-teal"><code>curl -O https://websitename.com/datafilename*.txt</code></mark> (Get all datafiles)</p><p id="eb8294fb-d80e-4b63-9fec-79fbb556e119" class=""><mark class="highlight-teal"><code>curl -O https://websitename.com/datafilename[0-100].txt</code></mark> (Get all datafiles from 0 to 100)</p><p id="200f4a57-fe29-4560-b744-0868fae429e7" class=""><mark class="highlight-teal"><code>curl -O https://websitename.com/datafilename[0-100:10].txt</code></mark> (Get all datafiles from 0 to 100 10 by 10)</p><p id="15be681c-228b-444a-bec2-551646dd7b2d" class=""><mark class="highlight-teal"><code>curl -L https://websitename.com/datafilename[0-100:10].txt</code></mark> (Get datafile if redirect occurs)</p></div></p><p id="18bc3ff1-a8fc-4f40-858b-a956ac172064" class=""><code>wget</code> (Multi purpose curl)<div class="indented"><p id="6398ff31-7789-4343-9a5c-7952de96df3c" class=""><mark class="highlight-teal"><code>wget -b -c https://websitename.com/datafilename.txt</code></mark> (Get data -b run in background, -c lets download partiaçly if error)</p><p id="97b74e77-e02e-4c73-bad2-2600480787ba" class=""><mark class="highlight-teal"><code>wget -i allurls.txt</code></mark> (Get data from all urls inside allurls.txt file)  </p><p id="aab19268-2dbf-4587-bd0f-90bd70d31279" class=""><mark class="highlight-teal"><code>wget --wait=2.5 -i urllist.txt</code></mark> (Get data from urls inside urlList and wait 2.5sec between urls)</p><p id="0d422cbb-c8b2-450e-83bb-43d1f831773a" class="">
+</p></div></p><h3 id="a1994090-c249-4b39-8a0a-931a136edb68" class=""><strong>Data Cleaning and Munging on the Command Line</strong></h3><p id="cfdb45a5-4c6f-4239-a6e8-59fb78a68aab" class="">This is part of <code>csvkit</code> (pip install csvkit)</p><p id="54031172-7499-4d68-ab27-25c1f5d2d54f" class=""><code>in2csv</code> (convert files into csv)<div class="indented"><p id="be8348c0-2660-4e3f-8a12-c3afdb541f98" class=""><mark class="highlight-teal"><code>in2csv somefile.xlsx &gt; somefile.csv</code></mark> (Create csv file from xlsx first sheet)</p><p id="dbedfb12-642a-438b-9c27-5a893871a713" class=""><mark class="highlight-teal"><code>in2csv somefile.xlsx</code></mark> (Print first sheet of xlsx)</p><p id="31d2f420-640c-466f-94d3-abc8d972be81" class=""><mark class="highlight-teal"><code>in2csv -n somefile.xlsx</code></mark> (Print all sheet names inside file)</p><p id="b6109ce6-cffa-41e5-a680-4c4b23af510a" class=""><mark class="highlight-teal"><code>in2csv somefile.xlsx --sheet &quot;sheet_name1&quot; &gt; somefile.csv</code></mark> (Create csv file from sheet_name1 inside from xlsx)</p></div></p><p id="04d8bbd6-ddda-4727-9748-015b72d9db00" class=""><code>csvlook</code> (Preview data in csv)<div class="indented"><p id="dca934ba-a05b-48b1-a26d-9d9baf443b1b" class=""><mark class="highlight-teal"><code>csvlook somefile.csv</code></mark></p></div></p><p id="4fe607be-319e-41bc-8ec1-36b74c91e587" class=""><code>csvstat</code> (Print descriptive sumarry statistics ‘similar to describePandas’)<div class="indented"><p id="78de94ba-4f4a-4c97-9d31-c74aa565d085" class=""><mark class="highlight-teal"><code>csvstat somefile.csv</code></mark></p></div></p><p id="7afdf32c-7b43-48f3-bb96-3419446efc7c" class=""><code>csvcut</code> (Filter data by columns)<div class="indented"><p id="97bd9eb5-b26c-47c6-80e6-2c26abb8ec43" class=""><mark class="highlight-teal"><code>csvcut -n somefile.csv</code></mark><mark class="highlight-teal"> </mark>(Print all columns names inside csv)</p><p id="33076e51-5487-4e2d-ae15-326787ffc222" class=""><mark class="highlight-teal"><code>csvcut -c 1 somefile.csv</code></mark><mark class="highlight-teal"> </mark>(Print the first columns inside csv)</p><p id="2675164a-0abd-4a4f-9a0e-58f5ff1d1ee5" class=""><mark class="highlight-teal"><code>csvcut -c &quot;ID&quot; somefile.csv</code></mark><mark class="highlight-teal"> </mark>(Print the “ID” column inside csv)</p><p id="f8edcdcb-6662-4867-88aa-a9c6fc321625" class=""><mark class="highlight-teal"><code>csvcut -c &quot;ID&quot;,&quot;Name&quot; somefile.csv</code></mark><mark class="highlight-teal"> </mark>(Print the “ID” column and “Name” inside csv)</p></div></p><p id="8e1ed0a2-62ea-4282-89f1-1807842a14de" class=""><code>csvgrep</code> (Filter data by row value)<div class="indented"><p id="2cea5309-a340-44c5-8cd1-2065ce221d8f" class=""><mark class="highlight-teal">csvgrep -c “trackID” -m 5RCP875 somefile.csv</mark> (Print csv where trackID == 5RCP875)</p></div></p><p id="6acc2bff-affb-47f5-8635-eaaa620e6741" class=""><code>csvstack</code> (Stack csv files ‘concat’)<div class="indented"><p id="f69a25dc-8185-4706-b970-e5976bcbcc63" class=""><mark class="highlight-teal"><code>csvstack somefile1.csv somefile2.csv &gt; somefile1and2.csv</code></mark><mark class="highlight-teal"> </mark>(Stack this two csv files into one)</p><p id="8d6432ee-be1e-41cb-9613-c2d946150218" class=""><mark class="highlight-teal"><code>csvstack -g &quot;From1&quot;,&quot;From2&quot; somefile1.csv somefile2.csv &gt; somefile1and2.csv</code></mark><mark class="highlight-teal"> </mark>(Stack this two csv files into one but create a source column ‘group’)</p><p id="0b50003b-d3be-4b46-96d8-6b1fd7e694ef" class=""><mark class="highlight-teal"><code>csvstack -g &quot;From1&quot;,&quot;From2&quot; -n &quot;source&quot; somefile1.csv somefile2.csv &gt; somefile1and2.csv</code></mark><mark class="highlight-teal"> </mark>(Stack two csv files into one and create a source column named ‘source’)</p></div></p><p id="e715c8a0-80a9-4024-9436-483dd4ab1c0d" class="">Chaining Commands</p><p id="1f03fcbe-0c33-47f6-ae22-cf0b6f95536b" class=""><code>;</code> More than one command in the same line</p><p id="4e1d362d-36da-4031-93ad-13d0d54986cc" class=""><code>&amp;&amp;</code> And operator (If right dont suceced dont do left)</p><p id="6f303d5d-1b35-4b7c-870d-d57494856060" class=""><code>&gt;</code> Redirect (Store ouput from right to left)</p><p id="1f796a33-e4f2-4b58-a630-9767c31c776d" class=""><code>|</code> Pipe operator ( Right is input for left)</p><p id="d9d9aafc-d10b-4dd0-98a9-36f13fee58fe" class="">
+</p><h3 id="8b89579a-4ee6-4817-8717-e50edc06e725" class=""><strong>Database Operations on the Command Line</strong></h3><p id="e3f91402-f656-462f-96db-f11c6f5b38e4" class=""><code>sql2csv</code> (Convert dabasequery to csv)<div class="indented"><p id="ecb4e61f-a5b9-40e8-8bad-edb722f54f08" class=""><mark class="highlight-teal"><code>sql2csv --db “sqlite:///sampledatabase.db” --query “SELECT * FROM table_name” &gt; samplefile.csv</code></mark> (- - db =database conection, query)  </p></div></p><p id="80c71a6b-a84a-4642-91ef-9ac66faa2b91" class=""><code>csvsql</code> (Manipulate csv file with sql queries and upload data to csv)<div class="indented"><p id="e83d268a-149e-4d0f-bbcb-558702aae51a" class=""><mark class="highlight-teal"><code>csvsql --query “SELECT * FROM table_name LIMIT 1”  samplefile.csv</code></mark><mark class="highlight-teal"> </mark>(Select first row from samplefile.csv)</p><p id="1ac228c9-d2bd-49bf-9ce0-d41da08be829" class=""><mark class="highlight-teal"><code>csvsql --query “SELECT * FROM file_a as a INNER JOIN file_b as b ON a.id = b.id ” file_a.csv file_b.csv</code></mark> (Inner join example with csv files</p><p id="5f1094af-6ac8-4998-a8fd-71ec047b1dfe" class=""><mark class="highlight-teal"><code>csvsql --query $variable samplefile.csv</code></mark> (Using variable on csvsql)</p><p id="4280b49b-0de8-4368-93c7-def6e97dad36" class=""><mark class="highlight-teal"><code>csvsql --db “sqlite:///sampledatabase.db”  --insert samplefile.csv </code></mark><mark class="highlight-teal"> </mark>(Insert csv as table into DB)</p></div></p><h3 id="552edc3e-4ed7-4c35-897a-92e13ad250b4" class=""><strong>Data Pipeline on the Command Line</strong></h3><p id="b16cb842-e103-456e-92c6-66d383b44c0b" class=""><code>python</code><div class="indented"><p id="a6d43dea-8978-410d-96b8-22c512391e2f" class=""><code><mark class="highlight-teal">python samplefile.py</mark></code> (Run python file)</p><p id="1632b89f-1bb7-4d7c-b024-d75c2f8f4ff1" class=""><code><mark class="highlight-teal">python --version</mark></code> (Check Python version)</p><p id="9df858ab-33f7-47be-bbaa-7bebb51df139" class=""><mark class="highlight-teal"><code>echo “print(’Hello world’)” &gt; samplefile.py</code></mark> (Create pythonfile inside terminal)</p></div></p><p id="e3e37437-4d92-4b96-b1a3-ed9778d7cfd9" class=""><code>pip</code><div class="indented"><p id="acd397bd-bdc8-4b3e-8344-1db5ea2f3f0c" class=""><code><mark class="highlight-teal">pip install package</mark></code><mark class="highlight-teal"> </mark>(Install package)</p><p id="f8d0e707-37b1-43ec-8c4d-36ba5fdaa682" class=""><code><mark class="highlight-teal">pip install package==0.19.2</mark></code><mark class="highlight-teal"> </mark>(Install specific package version)</p><p id="44e0abf8-4859-4e67-8371-e993e8347570" class=""><code><mark class="highlight-teal">pip install --upgrade package</mark></code><mark class="highlight-teal"> </mark>(Upgrade Package)</p><p id="2bb05645-f88c-4f2b-94d3-afc38f3b3e05" class=""><code><mark class="highlight-teal">pip install -r requirements.txt</mark></code><mark class="highlight-teal"> </mark>(Install a list of packages inside file)  </p><p id="a45a27bc-4520-4200-a9cf-a67628bc8a5b" class=""><code><mark class="highlight-teal">pip list</mark></code><mark class="highlight-teal"> </mark>(Show all packages installed)</p></div></p><p id="a67a93dd-c370-4627-98b9-24def1cb0e58" class=""><code>cron</code><div class="indented"><p id="712baa47-29cf-444a-8725-828bbae8e4cf" class=""><code><mark class="highlight-teal">crontab -l</mark></code> (Central file to keep track of cronjobs)</p><p id="39874d95-b46a-477b-bb64-e38b7a161bd3" class=""><code><mark class="highlight-teal">echo “* * * * * python create_model.py” | crontab</mark></code> (Add a comand to crontab. Edit with vim also avaliable)</p><figure id="82aba4f9-79ea-4035-981c-d767296f85a9" class="image"><a href="Data%20Processing%20in%20Shell%2082aba4f979ea4035981cd767296f85a9/Untitled.png"><img style="width:713px" src="Data%20Processing%20in%20Shell%2082aba4f979ea4035981cd767296f85a9/Untitled.png"/></a></figure><p id="c3174d18-13ef-4f72-9099-2873d05152ca" class=""><mark class="highlight-teal"><code>15 * * * * python model.py</code></mark><mark class="highlight-teal"> </mark>(Every hour, on the 15 minute of an hour? (e.g. 12:15 PM, 1:15 AM, 2:15 AM, etc))</p><p id="38a54ca2-6eac-4f41-8cd1-3e6b0b349346" class=""><mark class="highlight-teal"><code>* * * * * python model.py</code></mark><mark class="highlight-teal"> </mark>(Runs every minute)</p></div></p><p id="3c2035af-00d7-43a1-833a-548d695fec11" class="">
+</p></div></article></body></html>

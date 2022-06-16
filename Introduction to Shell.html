@@ -1,0 +1,674 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Introduction to Shell</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dc9a0cf7-b8b7-41e7-8fc2-11b19f187394" class="page sans"><header><h1 class="page-title"><strong>Introduction to Shell</strong></h1></header><div class="page-body"><h2 id="ba82756f-207a-4d8b-a614-9569359e1446" class="">Basic Commands</h2><p id="49c98206-4e03-43cb-8126-7810184b7024" class=""><code>pwd</code> → &quot;<strong>P</strong>rint <strong>W</strong>orking <strong>D</strong>irectory&quot;<div class="indented"><p id="82ec9d7b-d52e-4dee-93f4-e0dca4e594b4" class=""><mark class="highlight-teal"><code>pwd</code></mark> (Print Working Directory)</p></div></p><p id="ea8e4eae-d08c-4caa-9b98-5ca4c4fc94ca" class=""><code>ls</code> → &quot;Li<strong>s</strong>ting&quot;<div class="indented"><p id="9999ea6d-05d9-4225-8137-f215b99ebf20" class=""><mark class="highlight-teal"><code>ls</code></mark> (Listing on the Working Directory)</p><p id="9fb51122-3fee-4777-aae6-7622fc0b870f" class=""><mark class="highlight-teal"><code>ls /home/folder</code></mark> (Listing of a directory)</p><p id="2b35d594-c9b0-4f56-a033-c88da05be831" class=""><mark class="highlight-teal"><code>ls folder</code></mark></p><p id="bc54625e-8938-44fa-810e-bbd6d3bd53cb" class=""><mark class="highlight-teal"><code>ls -R</code></mark> (Recursive → shows everything)</p></div></p><p id="22680670-3523-4187-8b3f-8b4835238466" class=""><code>cd</code> → “<strong>C</strong>hange <strong>D</strong>irectory”<div class="indented"><p id="bd84a639-1bb5-4fad-8c63-371279b43e08" class=""><mark class="highlight-teal"><code>cd folder</code></mark></p><p id="b97ba89c-2374-4428-9303-9b21da362b8b" class=""><mark class="highlight-teal"><code>cd /home/folder</code></mark></p></div></p><p id="bcc1a751-8911-4a26-a9cd-91a1f71c2624" class="">Absolute Path vs Relative Path  →  The shell decides if a path is absolute or relative by looking at its first character: If it begins with /, it is absolute. If it does not begin with /, it is relative.</p><p id="381c5a81-2ebb-4aa4-a6c6-7e459a8418ec" class=""><code>..</code>  →  “the directory above the one I&#x27;m currently in”</p><p id="c0c141a3-f975-4abc-b819-7d31edb8a748" class=""><code>.</code> → “the current directory”</p><p id="ba3cfb9b-af05-4e18-a123-f78d17b786f7" class=""><code>~</code> → &quot;your home directory”</p><p id="25887a9c-ac84-4637-b4bf-1e6db2582978" class=""><code>cp</code> →  “Copy”<div class="indented"><p id="87b0243e-1f44-41c6-aef9-8251c065bcca" class=""><mark class="highlight-teal"><code>cp original.txt duplicate.txt</code></mark></p><p id="2e7e8ee8-8e33-4fc6-8320-7f470aebde71" class=""><mark class="highlight-teal"><code>cp folder/original.txt backup/duplicate.txt</code></mark></p></div></p><p id="f8ace47e-480d-443a-9ea6-9a0fe68d521c" class=""><code>mv</code> → “Move”<div class="indented"><p id="2566b078-1169-4c58-9bf5-c3625b9320eb" class=""><mark class="highlight-teal"><code>mv original.txt backup</code></mark></p><p id="faca4724-54fb-48a3-954f-bd9981fc039d" class=""><mark class="highlight-teal"><code>mv course.txt old-course.txt</code></mark> (Rename file)</p></div></p><p id="83a45476-15e3-4ea5-9835-8080b075b54b" class=""><code>rm</code> → “Remove”<div class="indented"><p id="8f3bb12a-4db5-473d-9d46-62ff91c880ff" class=""><mark class="highlight-teal"><code>rm sometext.txt</code></mark></p><p id="af273350-67f9-48e8-9a97-2b0bfdc4d246" class=""><mark class="highlight-teal"><code>rm folder/sometext.txt</code></mark></p></div></p><p id="6a89999f-f36d-435d-9e8f-7de6a2120f2b" class=""><code>mkdir</code> → “Make directory”<div class="indented"><p id="ddcce23e-dfc5-4c28-8c5b-51d4fb701d51" class=""><mark class="highlight-teal"><code>mkdir folder</code></mark></p></div></p><p id="9d8ab806-e57c-4577-9653-b5c6adfc7453" class=""><code>rmdir</code> → “Remove directory”<div class="indented"><p id="ad5b0360-27f5-47f8-a96b-8bc292bee7a9" class=""><mark class="highlight-teal"><code>rmdir folder</code></mark></p></div></p><p id="7277a27f-0841-4431-be34-bd5e87b67783" class=""><code>history</code> → (See all history commands)<div class="indented"><p id="a82d0301-7619-4033-8971-f0c064dcd2af" class=""><mark class="highlight-teal"><code>history</code></mark></p><p id="b194720a-6ced-47cd-8d82-28ce181edc85" class=""><mark class="highlight-teal"><code>!34</code></mark> (Rerun command 34 in the history)</p><p id="4d2e0a6a-d7ff-496c-9f32-29288fa758d6" class=""><mark class="highlight-teal"><code>!head</code></mark> (Rerun last head command)</p></div></p><p id="7d4ffd4a-7d1c-4305-80d7-8d04b7a4ae4c" class="">
+</p><h2 id="ac3512e9-0f73-4325-bba1-b29ba90de3b4" class="">Manipulating Data</h2><p id="8551246a-c893-4d07-bfd8-8614a85d14ed" class=""><code>cat</code> → “Concatenate” (Read File)<div class="indented"><p id="eeaf0676-d3f1-4414-b68d-056d71696357" class=""><mark class="highlight-teal"><code>cat sometext.txt</code></mark></p></div></p><p id="6c53faf3-dace-45c3-90ec-5a8f2c329cd4" class=""><code>less</code> → Read file  :n nextPage :q<div class="indented"><p id="7a694f14-4fd6-4f4d-892e-394f2b3cfcdb" class=""><mark class="highlight-teal"><code>less sometext1.txt sometext2.txt</code></mark></p></div></p><p id="9ec4867b-8544-4eea-89e2-83bd984aa6ab" class=""><code>head</code> → View first 10 lines<div class="indented"><p id="a0775785-409d-4051-9b33-ef993d02942b" class=""><mark class="highlight-teal"><code>head somecsv.csv</code></mark></p><p id="b181e177-6538-4c0e-9d49-3239927c8203" class=""><mark class="highlight-teal"><code>head -n 5  somecsv.csv</code></mark> (Show only five lines)</p></div></p><p id="33397e87-e29a-4f1d-8bab-e5aa465ec960" class=""><code>tail</code> → view Last 10 lines</p><p id="8bcde1a4-4e16-4ce0-9019-fb39ba391e65" class=""><code>man</code> → Manual<div class="indented"><p id="2c3e6f56-ccce-4be7-99c1-95e9de4829a6" class=""><mark class="highlight-teal"><code>man curl</code></mark></p></div></p><p id="40972332-4a47-4a3f-b0d2-df00a7747fca" class=""><code>cut</code> → Select Columns<div class="indented"><p id="2889fde7-c1f4-4e98-b1a6-29cc47b7bfd6" class=""><mark class="highlight-teal"><code>cut -f 2-5,8 -d , values.csv</code></mark>  (-f “fields”, -d “delimiter”)(This comand shows columns 2-5 and 6 with delimiter “,”)</p></div></p><p id="c6204de4-9ada-4eab-8b20-5b1c279cef7b" class=""><code>wc</code> → Word count / Count lines (-l lines, -w words, -c caracters)<div class="indented"><p id="238d8476-a305-4ce5-a81f-cff85056fcca" class=""><mark class="highlight-teal"><code>wc -l sometext.txt</code></mark> (Count lines in file)</p></div></p><p id="ff4a0bf5-d37c-43d1-978b-9e5b2c62c715" class=""><code>grep</code> → global regular expression print<div class="indented"><ul id="dab5c176-8eb0-4d7b-aea2-222529859985" class="bulleted-list"><li style="list-style-type:disc"><code>c</code>: print a count of matching lines rather than the lines themselves</li></ul><ul id="7eda4b0c-022b-4a3e-acc2-ae1866771ab8" class="bulleted-list"><li style="list-style-type:disc"><code>h</code>: do <em>not</em> print the names of files when searching multiple files</li></ul><ul id="6de9e590-ff5e-4459-8407-c9ecadb0f6ba" class="bulleted-list"><li style="list-style-type:disc"><code>i</code>: ignore case (e.g., treat &quot;Regression&quot; and &quot;regression&quot; as matches)</li></ul><ul id="58b4aa6a-3ab9-478d-903e-d7988764e94b" class="bulleted-list"><li style="list-style-type:disc"><code>l</code>: print the names of files that contain matches, not the matches</li></ul><ul id="384b24c3-7b7b-45c7-a74a-671486f11323" class="bulleted-list"><li style="list-style-type:disc"><code>n</code>: print line numbers for matching lines</li></ul><ul id="de6f5379-2805-4310-a300-1dd316d00702" class="bulleted-list"><li style="list-style-type:disc"><code>v</code>: invert the match, i.e., only show lines that <em>don&#x27;t</em> match</li></ul><p id="74e5a38c-ca27-41f5-ba94-ce181300850f" class=""><mark class="highlight-teal"><code>grep molar seasonal/winter.csv</code></mark> (print all lines with molar)</p><p id="f04e2a34-ccf7-4af1-a750-0bc0d366a58e" class=""><mark class="highlight-teal"><code>grep &#x27;pattern1\|pattern2&#x27; fileName.txt</code></mark> (Get parten1 or parten2)</p><p id="91fd3c9d-804b-4445-9c27-c9bc72fa0231" class=""><mark class="highlight-teal"><code>grep -v -n molar seasonal/winter.csv</code></mark> (print all lines without molar and show lines number)</p></div></p><p id="f0f2b786-075b-4ff2-b191-338905779223" class=""><code>sort</code> → Sort values<div class="indented"><p id="d67dd368-40aa-49bf-9820-0b07e4e0fe94" class=""><mark class="highlight-teal"><code>cat sometext.txt | sort -r</code></mark> (Show lines in reverse alphabetical order)</p></div></p><p id="9de6a466-8446-444c-a391-34a29114d418" class=""><code>uniq</code> → Unique values<div class="indented"><p id="d862cadf-78e7-456a-96c8-1eeef2caaf55" class=""><mark class="highlight-teal"><code>cat sometxt.txt | sort | uniq -c</code></mark> (Show all lines with unique values and count them)</p><p id="7a0e667d-a714-4273-b8ab-edca731f43f4" class="">
+</p></div></p><h2 id="3f37aaff-d6e4-40cc-b8e9-0f4abfe14b18" class="">Combining tools</h2><p id="0e012bb6-3988-4b65-85a4-c5098f8dd403" class=""><code>&gt;</code> → Store/redirect a command&#x27;s output in a file.<div class="indented"><p id="c40e6032-5197-455b-b463-baf0ad412443" class=""><mark class="highlight-teal"><code>head -n 5 seasonal/summer.csv &gt; top.csv</code></mark> (Created a file with comand output)</p><p id="4e2493aa-24f9-4521-b01d-ba340518b3ec" class=""><mark class="highlight-teal"><code>&gt; result.txt | head -n seasonal/summer.csv</code></mark> </p></div></p><p id="2d2bc39c-0138-4a6c-ad6c-220e097cdc78" class=""><code>|</code> → Combine commands (Pipe) Use the output of the command on the left as the input to the command on the right.<div class="indented"><p id="80b05cfd-db68-40c5-b28b-4b38ff49357e" class=""><mark class="highlight-teal"><code>head -n 5 seasonal/summer.csv | tail -n 3</code></mark> (Print lines 3-5)</p></div></p><p id="084133e1-a71d-4856-88bb-f7c8197c46d3" class=""><code>*</code> → Wildcard (Match zero or more characters)<div class="indented"><p id="b6d06e93-a29c-42f6-ba96-227eca1032e5" class=""><mark class="highlight-teal"><code>cut -d , -f 2 seasonal/s*.csv</code></mark> (Use cut in all files inside seasonal folder that start with s and end  with .csv)</p></div></p><p id="d496ca0a-4095-44da-b717-cbdfb407ff6f" class=""><code>?</code> → Wildcard Match a single character<div class="indented"><p id="a13928ba-87ac-4569-8812-7986ac0d6152" class=""><mark class="highlight-teal"><code>head -n 2 201?.txt</code></mark> (Match with 2018.txt, 2019.txt but not 2011-2.txt)</p></div></p><p id="b77b487b-8ea0-4c86-806f-0bc0c900de02" class=""><code>[...]</code> → Wildcard Matches any one of the characters inside the square brackets<div class="indented"><p id="3276aa09-f522-4dd3-aa25-6246a62375ee" class=""><mark class="highlight-teal"><code>head -n 2 201[5,6].txt</code></mark> (Match with 2015 and 2016.txt)</p></div></p><p id="29c786b1-6181-4814-9ff7-7ffe1495e6e7" class=""><code>{...}</code> → Wildcard Matches any of the comma-separated patterns inside the curly brackets<div class="indented"><p id="1f0a101d-77a0-4af0-a316-0e0e0b183168" class=""><mark class="highlight-teal"><code>head -n {2*.txt, 2*.csv}</code></mark> (Match with 2015.txt and 2015.csv)</p></div></p><p id="249e9d47-63f2-4f83-a5d0-88f907705cb7" class="">
+</p><h2 id="15d620cc-ef44-4589-8fac-665180444b21" class=""><strong>Batch processing</strong></h2><p id="b97f0a8d-4622-4faf-a9a0-f44263c486c5" class="">environment variables <div class="indented"><p id="05d705d6-7f96-4269-96d8-2c20f4e90086" class=""><mark class="highlight-teal"><code>echo $HOME</code></mark> (Print variable value inside home)</p></div></p><p id="ca3a7ee1-e036-40d1-8aee-f75525ca3dd3" class=""><code>echo</code> → print<div class="indented"><p id="b975fbe0-3ceb-471a-a89b-af8c05c7f92f" class=""><mark class="highlight-teal"><code>echo hello world</code></mark></p></div></p><p id="9f7b42a0-5661-4ffc-9bf3-f835013e2ac0" class="">shell variable <div class="indented"><p id="37985330-d671-452f-804f-cbcc2f912742" class=""><mark class="highlight-teal"><code>testing=seasonal/winter.csv</code></mark> (Creating variables)</p><p id="8d9eee06-b741-42de-be92-ba4d320782d3" class=""><mark class="highlight-teal"><code>head -n 1 $testing</code></mark> (Head -n 1 use variables)</p><p id="8dfc37ec-b2b1-42ac-b68d-b8cc204ddb68" class=""><mark class="highlight-teal"><code>for x in pdf odf docx; do echo $x; done</code></mark> ( Prints pdf, odf, docx ) </p><p id="0278c1b8-f167-483e-a536-59c30365ecb6" class=""><mark class="highlight-teal"><code>for file in seasonal/* ; do echo $file ; done</code></mark> ( Prints all files inside folder )</p><p id="28f50e06-b01d-4327-8ffb-2cd0284b5836" class=""><mark class="highlight-teal"><code>for f in seasonal/*csv; do grep 2017 $f | tail -n 1; done</code></mark>  (Print last value of 2017 of each file in folder)</p></div></p><h2 id="3d937215-685c-4342-9e00-81391ea7402e" class=""><strong>Creating new tools</strong></h2><p id="3be2150d-ab16-4b4d-a724-52bade733dd1" class=""><code>nano</code> → File editing<div class="indented"><p id="187ee5bc-11aa-4604-9bc7-c9eaf78f9285" class=""><mark class="highlight-teal"><code>nano filename</code></mark></p><ul id="aa2e5d50-8630-46a3-af14-5e6b37df89ac" class="bulleted-list"><li style="list-style-type:disc"><code>Ctrl</code> + <code>K</code>: delete a line.</li></ul><ul id="a3e9221e-5c53-42cc-b65a-314fbdd5871a" class="bulleted-list"><li style="list-style-type:disc"><code>Ctrl</code> + <code>U</code>: un-delete a line.</li></ul><ul id="4ad67fb6-aa1c-42d0-af74-bacec8ebd436" class="bulleted-list"><li style="list-style-type:disc"><code>Ctrl</code> + <code>O</code>: save the file (&#x27;O&#x27; stands for &#x27;output&#x27;). <em>You will also need to press Enter to confirm the filename!</em></li></ul><ul id="6f8dda45-83e1-43cb-84bf-983702b63c04" class="bulleted-list"><li style="list-style-type:disc"><code>Ctrl</code> + <code>X</code>: exit the editor.</li></ul></div></p><p id="a7b9eda8-4868-47a2-b550-43f89bca3f88" class="">Example save commands : <mark class="highlight-teal"><code>history | tails -n 3 &gt; steps.txt</code></mark></p><p id="e3c8792b-fcba-40d4-938f-54c4c6aec6c7" class="">Example creating simples sh script :<div class="indented"><p id="aeab7000-120a-4bf6-9bed-79c5fcdd3d8e" class=""><mark class="highlight-teal"><code>vim dates.sh</code></mark></p><p id="9fd275ae-b34d-498e-ae90-479f41ac8fa0" class=""><mark class="highlight-teal"><code>cut -d , -f 1 seasonal/*.csv</code></mark></p><p id="9f7bdf48-b7bd-47f0-9472-3e43909c7b4b" class=""><mark class="highlight-teal"><code>bash dates.sh</code></mark></p></div></p><p id="e42959b1-bcae-4562-bc89-b8189edc4e71" class=""><code>$@</code> → Special expression to pass arguments to script<div class="indented"><p id="9b3d6e74-cc84-4381-b526-63380e952674" class=""><mark class="highlight-teal"><code>vim cols.sh</code></mark></p><p id="0280ecd2-b8bf-4551-ac31-fac120be8c75" class=""><mark class="highlight-teal"><code>cut -d , -f $2 $1</code></mark></p><p id="6477a9b9-7700-461b-8ad6-e167387744cd" class=""><mark class="highlight-teal"><code>bash cols.sh seasonal/*.csv 2</code></mark></p><p id="71d93952-d7c3-4b2d-ba89-989649929653" class="">
+</p></div></p><p id="33b055b1-9ef5-4e63-b630-6a0e91c77b4b" class="">
+</p></div></article></body></html>
