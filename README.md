@@ -195,7 +195,7 @@
 - [x]  Slicing and Indexing DataFrames (100%)
 - [x]  Creating and Visualizing DataFrames (100%)
 
-### [Joining Data with pandas](https://app.datacamp.com/learn/courses/joining-data-with-pandas)
+### [Joining Data with pandas (Interactive Course)](https://app.datacamp.com/learn/courses/joining-data-with-pandas)
 - [x] Data Merging Basics (100%)
 - [X] Merging Tables With Different Join Types (100%)
 - [X] Advanced Merging and Concatenating (100%)
