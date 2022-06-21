@@ -115,7 +115,7 @@
 - [Introduction to SCALA (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-scala)
     - [X]  A Scalable Language (100%)
     - [X]  Workflows, Functions, Collections (100%)
-    - []  Type Systems, Control Structures, Style (0%)
+    - [X]  Type Systems, Control Structures, Style (100%)
 
 - [Big Data Fundamentals with Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/big-data-fundamentals-with-pyspark)
     - []  Introduction to Big Data analysis with Spark (0%)
