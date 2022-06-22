@@ -109,7 +109,7 @@
     - [X]  Processing, Storing, and Organizing Data (100%)
     - [X]  Database Schemas and Normalization (100%)
     - [X]  Database Views (100%)
-    - []  Database Management (0%)
+    - [X]  Database Management (100%)
 
 
 - [Introduction to SCALA (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-scala)
