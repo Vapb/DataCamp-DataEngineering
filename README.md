@@ -108,7 +108,7 @@
 - [Database Design (Interactive Course)](https://app.datacamp.com/learn/courses/database-design)
     - [X]  Processing, Storing, and Organizing Data (100%)
     - [X]  Database Schemas and Normalization (100%)
-    - []  Database Views (0%)
+    - [X]  Database Views (100%)
     - []  Database Management (0%)
 
 
