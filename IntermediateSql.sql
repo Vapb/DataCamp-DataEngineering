@@ -1,3 +1,4 @@
+--- CASE
 -- Case When Then  (CASE RETURN THEN when WHEN IS MEET)
 SELECT 
 	CASE WHEN hometeam_id = 10189 THEN 'FC Schalke 04'
@@ -96,3 +97,102 @@ ON c.id = m.country_id
 -- Group by country name alias
 GROUP BY country;
 
+
+
+
+
+--- SUBQUERIES
+--Subqueries can return Scalar quantities (3.1112, -2, 0.0202); A list (id=(1,2,3)); A table.
+
+-- Simple subquery
+SELECT 
+	-- Select the date, home goals, and away goals scored
+    date,
+	home_goal,
+	away_goal
+FROM  matches_2013_2014
+-- Filter for matches where total goals exceeds 3x the average
+WHERE (home_goal + away_goal) > 
+       (SELECT 3 * AVG(home_goal + away_goal)
+        FROM matches_2013_2014); 
+
+-- Filtering using a subquery with a list
+SELECT 
+	-- Select the team long and short names
+	team_long_name,
+	team_short_name
+FROM team 
+-- Exclude all values from the subquery
+WHERE team_api_id NOT IN
+     (SELECT DISTINCT hometeam_id FROM match);
+
+
+-- Subqueries in FROM -> Prefiltering your data; Calculating Aggregates.
+
+SELECT
+	-- Select country name and the count match IDs
+    c.name AS country_name,
+    COUNT(sub.id) AS matches
+FROM country AS c
+-- Inner join the subquery onto country
+-- Select the country id and match id columns
+INNER JOIN (SELECT country_id, id 
+           FROM match
+           -- Filter the subquery by matches with 10+ goals
+           WHERE (home_goal + away_goal) >= 10) AS sub
+ON c.id = sub.country_id
+GROUP BY country_name;
+
+
+-- Subqueries in SELECT -> Return single value, good for calculations
+
+SELECT 
+	l.name AS league,
+    -- Select and round the league's total goals
+    ROUND(AVG(m.home_goal + m.away_goal), 2) AS avg_goals,
+    -- Select & round the average total goals for the season
+    (SELECT ROUND(AVG(m.home_goal + m.away_goal), 2) 
+     FROM match as m
+     WHERE season = '2013/2014') AS overall_avg
+FROM league AS l
+LEFT JOIN match AS m
+ON l.country_id = m.country_id
+-- Filter for the 2013/2014 season
+WHERE season = '2013/2014'
+GROUP BY league;
+
+SELECT
+	-- Select the league name and average goals scored
+	l.name AS league,
+	ROUND(AVG(m.home_goal + m.away_goal), 2) AS avg_goals,
+    -- Subtract the overall average from the league average
+	ROUND(AVG(m.home_goal + m.away_goal) - 
+		(SELECT AVG(home_goal + away_goal)
+		 FROM match 
+         WHERE season = '2013/2014'),2) AS diff
+FROM league AS l
+LEFT JOIN match AS m
+ON l.country_id = m.country_id
+-- Only include 2013/2014 results
+WHERE season = '2013/2014'
+GROUP BY l.name;
+
+-- Multiple Subquerys
+SELECT 
+	-- Select the stage and average goals from s
+	s.stage,
+    ROUND(s.avg_goals,2) AS avg_goal,
+    -- Select the overall average for 2012/2013
+    (SELECT AVG(home_goal + away_goal) FROM match WHERE season = '2012/2013') AS overall_avg
+FROM 
+	-- Select the stage and average goals in 2012/2013 from match
+	(SELECT
+		 stage,
+         AVG(home_goal + away_goal) AS avg_goals
+	 FROM match
+	 WHERE season = '2012/2013'
+	 GROUP BY stage) AS s
+WHERE 
+	-- Filter the main query using the subquery
+	s.avg_goals > (SELECT AVG(home_goal + away_goal) 
+                    FROM match WHERE season = '2012/2013');
