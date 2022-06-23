@@ -199,4 +199,11 @@
 - [x] Data Merging Basics (100%)
 - [X] Merging Tables With Different Join Types (100%)
 - [X] Advanced Merging and Concatenating (100%)
-- [X]  Merging Ordered and Time-Series Data (100%)
+- [X] Merging Ordered and Time-Series Data (100%)
+
+### [Introduction to Databases in Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-relational-databases-in-python)
+- [X] Basics of Relational Databases (100%)
+- [] Applying Filtering, Ordering and Grouping to Queries (0%)
+- [] Advanced SQLAlchemy Queries (0%)
+- [] Creating and Manipulating your own Databases (0%)
+- [] Putting it all together (0%)
