@@ -157,7 +157,7 @@
 ### [Intermediate SQL](https://app.datacamp.com/learn/courses/intermediate-sql)
 - [X] We'll take the CASE (100%)
 - [X] Short and Simple Subqueries (100%)
-- [] Correlated Queries, Nested Queries, and Common Table Expressions (0%)
+- [X] Correlated Queries, Nested Queries, and Common Table Expressions (100%)
 - [] Window Functions (0%)
 
 

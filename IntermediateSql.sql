@@ -196,3 +196,102 @@ WHERE
 	-- Filter the main query using the subquery
 	s.avg_goals > (SELECT AVG(home_goal + away_goal) 
                     FROM match WHERE season = '2012/2013');
+
+
+
+
+
+-- Correlated subqueries -> Are subqueries that reference one or more columns in the main query
+-- Cannot run independent from Main-query
+SELECT 
+	-- Select country ID, date, home, and away goals from match
+	main.country_id,
+    main.date,
+    main.home_goal, 
+    main.away_goal
+FROM match AS main
+WHERE 
+	-- Filter the main query by the subquery
+	(home_goal + away_goal) > 
+        (SELECT AVG((sub.home_goal + sub.away_goal) * 3)
+         FROM match AS sub
+         -- Join the main query to the subquery in WHERE
+         WHERE main.country_id = sub.country_id);
+
+--highest scoring match for each country, in each season?
+SELECT 
+	-- Select country ID, date, home, and away goals from match
+	main.country_id,
+    date,
+    main.home_goal,
+    main.away_goal
+FROM match AS main
+WHERE 
+	-- Filter for matches with the highest number of goals scored
+	(main.home_goal + main.away_goal) = 
+        (SELECT MAX(sub.home_goal + sub.away_goal)
+         FROM match AS sub
+         WHERE main.country_id = sub.country_id
+           AND main.season = sub.season);
+
+
+-- Nested Queries (Queries inside subqueries)
+SELECT
+	-- Select the season and max goals scored in a match
+	season,
+    MAX(home_goal + away_goal) AS max_goals,
+    -- Select the overall max goals scored in a match
+   (SELECT MAX(home_goal + away_goal) FROM match) AS overall_max_goals,
+   -- Select the max number of goals scored in any match in July
+   (SELECT MAX(home_goal + away_goal) 
+    FROM match
+    WHERE id IN (
+          SELECT id FROM match WHERE EXTRACT(MONTH FROM date) = 07)) AS july_max_goals
+FROM match
+GROUP BY season;
+
+
+
+-- Common Table Expressions CTE (WITH)
+-- Set up your CTE
+WITH match_list AS (
+    SELECT 
+  		country_id, 
+  		id
+    FROM match
+    WHERE (home_goal + away_goal) >= 10)
+-- Select league and count of matches from the CTE
+SELECT
+    l.name AS league,
+    COUNT(match_list.id) AS matches
+FROM league AS l
+-- Join the CTE to the league table
+LEFT JOIN match_list ON l.id = match_list.country_id
+GROUP BY l.name;
+
+
+-- Second Example   
+WITH home AS (
+  SELECT m.id, m.date, 
+  		 t.team_long_name AS hometeam, m.home_goal
+  FROM match AS m
+  LEFT JOIN team AS t 
+  ON m.hometeam_id = t.team_api_id),
+-- Declare and set up the away CTE
+away AS (
+  SELECT m.id, m.date, 
+  		 t.team_long_name AS awayteam, m.away_goal
+  FROM match AS m
+  LEFT JOIN team AS t 
+  ON m.awayteam_id = t.team_api_id)
+-- Select date, home_goal, and away_goal
+SELECT 
+	home.date,
+    home.hometeam,
+    away.awayteam,
+    home.home_goal,
+    away.away_goal
+-- Join away and home on the id column
+FROM home
+INNER JOIN away
+ON home.id = away.id;
