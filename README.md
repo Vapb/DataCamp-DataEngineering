@@ -158,7 +158,7 @@
 - [X] We'll take the CASE (100%)
 - [X] Short and Simple Subqueries (100%)
 - [X] Correlated Queries, Nested Queries, and Common Table Expressions (100%)
-- [] Window Functions (0%)
+- [X] Window Functions (100%)
 
 
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
