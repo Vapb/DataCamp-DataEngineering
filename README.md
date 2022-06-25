@@ -161,6 +161,12 @@
 - [X] Window Functions (100%)
 
 
+### [Creating PostgreSQL Databases](https://app.datacamp.com/learn/courses/creating-postgresql-databases)
+- [X] Structure of PostgreSQL Databases (100%)
+- [] PostgreSQL Data Types (0%)
+- [] Database Normalization (0%)
+- [] Access Control in PostgreSQL (0%)
+
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
 - [ ]  Explore the data and requirements (0%)
 - [ ]  Create the ETL foundations (0%)
