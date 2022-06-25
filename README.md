@@ -163,7 +163,7 @@
 
 ### [Creating PostgreSQL Databases](https://app.datacamp.com/learn/courses/creating-postgresql-databases)
 - [X] Structure of PostgreSQL Databases (100%)
-- [] PostgreSQL Data Types (0%)
+- [X] PostgreSQL Data Types (100%)
 - [] Database Normalization (0%)
 - [] Access Control in PostgreSQL (0%)
 
