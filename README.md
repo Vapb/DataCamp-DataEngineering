@@ -164,7 +164,7 @@
 ### [Creating PostgreSQL Databases](https://app.datacamp.com/learn/courses/creating-postgresql-databases)
 - [X] Structure of PostgreSQL Databases (100%)
 - [X] PostgreSQL Data Types (100%)
-- [] Database Normalization (50%)
+- [X] Database Normalization (100%)
 - [] Access Control in PostgreSQL (0%)
 
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
