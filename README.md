@@ -213,3 +213,12 @@
 - [] Advanced SQLAlchemy Queries (0%)
 - [] Creating and Manipulating your own Databases (0%)
 - [] Putting it all together (0%)
+
+---
+
+## SQL for Database Administrators (SKILL TRACK)
+    Introduction to Relational Databases in SQL (100%)
+    Database Design (100%)
+    Creating PostgreSQL Databases (75%)
+    Improving Query Performance in PostgreSQL (0%)
+
