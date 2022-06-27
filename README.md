@@ -165,7 +165,7 @@
 - [X] Structure of PostgreSQL Databases (100%)
 - [X] PostgreSQL Data Types (100%)
 - [X] Database Normalization (100%)
-- [] Access Control in PostgreSQL (0%)
+- [X] Access Control in PostgreSQL (100%)
 
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
 - [ ]  Explore the data and requirements (0%)
@@ -219,6 +219,6 @@
 ## SQL for Database Administrators (SKILL TRACK)
     Introduction to Relational Databases in SQL (100%)
     Database Design (100%)
-    Creating PostgreSQL Databases (75%)
+    Creating PostgreSQL Databases (100%)
     Improving Query Performance in PostgreSQL (0%)
 
