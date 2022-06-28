@@ -167,6 +167,14 @@
 - [X] Database Normalization (100%)
 - [X] Access Control in PostgreSQL (100%)
 
+
+### [Improving Query Performance in PostgreSQL (Interactive Course)]()
+- [X] Bringing Together the Data (100%)
+- [] Minimizing Results and Decreasing the Load (0%)
+- [] Using Database Designed Properties (0%)
+- [] Assessing Query Performance (0%)
+
+
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
 - [ ]  Explore the data and requirements (0%)
 - [ ]  Create the ETL foundations (0%)
@@ -201,11 +209,13 @@
 - [x]  Slicing and Indexing DataFrames (100%)
 - [x]  Creating and Visualizing DataFrames (100%)
 
+
 ### [Joining Data with pandas (Interactive Course)](https://app.datacamp.com/learn/courses/joining-data-with-pandas)
 - [x] Data Merging Basics (100%)
 - [X] Merging Tables With Different Join Types (100%)
 - [X] Advanced Merging and Concatenating (100%)
 - [X] Merging Ordered and Time-Series Data (100%)
+
 
 ### [Introduction to Databases in Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-relational-databases-in-python)
 - [X] Basics of Relational Databases (100%)
@@ -220,5 +230,5 @@
     Introduction to Relational Databases in SQL (100%)
     Database Design (100%)
     Creating PostgreSQL Databases (100%)
-    Improving Query Performance in PostgreSQL (0%)
+    Improving Query Performance in PostgreSQL (25%)
 
