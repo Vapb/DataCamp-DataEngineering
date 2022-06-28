@@ -171,7 +171,7 @@
 ### [Improving Query Performance in PostgreSQL (Interactive Course)]()
 - [X] Bringing Together the Data (100%)
 - [X] Minimizing Results and Decreasing the Load (100%)
-- [] Using Database Designed Properties (0%)
+- [X] Using Database Designed Properties (100%)
 - [] Assessing Query Performance (0%)
 
 
@@ -230,5 +230,5 @@
     Introduction to Relational Databases in SQL (100%)
     Database Design (100%)
     Creating PostgreSQL Databases (100%)
-    Improving Query Performance in PostgreSQL (50%)
+    Improving Query Performance in PostgreSQL (75%)
 
