@@ -172,7 +172,7 @@
 - [X] Bringing Together the Data (100%)
 - [X] Minimizing Results and Decreasing the Load (100%)
 - [X] Using Database Designed Properties (100%)
-- [] Assessing Query Performance (0%)
+- [X] Assessing Query Performance (100%)
 
 
 ### [ETL in Python (Interactive Course)](https://app.datacamp.com/learn/courses/etl-in-python)
@@ -230,5 +230,5 @@
     Introduction to Relational Databases in SQL (100%)
     Database Design (100%)
     Creating PostgreSQL Databases (100%)
-    Improving Query Performance in PostgreSQL (75%)
+    Improving Query Performance in PostgreSQL (100%)
 
