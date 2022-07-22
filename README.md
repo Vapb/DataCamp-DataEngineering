@@ -90,7 +90,7 @@
 
 - [Introduction to AWS Boto Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-aws-boto-in-python)
     - [X]  Putting Files in the Cloud! (100%)
-    - []  Sharing Files Securely (0%)
+    - [X]  Sharing Files Securely (100%)
     - []  Reporting and Notifying! (0%)
     - []  Pattern Rekognition (0%)
 
