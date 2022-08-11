@@ -99,7 +99,7 @@
 
 
 - [Introduction to Relation Databases in SQL (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-relational-databases-in-sql)
-    - [x]  Your first database (100%)
+    - [X]  Your first database (100%)
     - [X]  Enforce data consistency with attribute constraints (100%)
     - [X]  Uniquely identify records with key constraints (100%)
     - [X]  Glue together tables with foreign keys (100%)
