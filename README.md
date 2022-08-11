@@ -92,7 +92,7 @@
     - [X]  Putting Files in the Cloud! (100%)
     - [X]  Sharing Files Securely (100%)
     - [X]  Reporting and Notifying! (100%)
-    - []  Pattern Rekognition (0%)
+    - [X]  Pattern Rekognition (100%)
 
 
  - []  Data Analysis in SQL (Postgre SQL) ( Test )
