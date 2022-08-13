@@ -132,7 +132,7 @@
 
 - [Introduction to MongoDB in Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-using-mongodb-for-data-science-with-python)
     - [X]  Flexibly Structured Data (100%)
-    - []  Working with Distinct Values and Sets (0%)
+    - []  Working with Distinct Values and Sets (27%)
     - []  Get Only What You Need, and Fast (0%)
     - []  Aggregation Pipelines: Let the Server Do It For You (0%)
 
