@@ -134,7 +134,7 @@
     - [X]  Flexibly Structured Data (100%)
     - [X]  Working with Distinct Values and Sets (100%)
     - [X]  Get Only What You Need, and Fast (100%)
-    - []  Aggregation Pipelines: Let the Server Do It For You (0%)
+    - []  Aggregation Pipelines: Let the Server Do It For You (50%)
 
 ---
 
