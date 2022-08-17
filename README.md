@@ -76,7 +76,7 @@
 
 - [Introduction to Airflow Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-airflow-in-python)
     - [X]  Intro to Airflow (100%)
-    - []  Implementing Airflow DAGs (0%)
+    - [X]  Implementing Airflow DAGs (100%)
     - []  Maintaining and monitoring Airflow workflows (0%)
     - []  Building production pipelines in Airflow (0%)
 
