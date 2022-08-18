@@ -78,7 +78,7 @@
     - [X]  Intro to Airflow (100%)
     - [X]  Implementing Airflow DAGs (100%)
     - [X]  Maintaining and monitoring Airflow workflows (100%)
-    - []  Building production pipelines in Airflow (0%)
+    - [X]  Building production pipelines in Airflow (100%)
 
 
 - [Introduction to Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-pyspark)
