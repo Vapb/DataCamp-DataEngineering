@@ -82,7 +82,7 @@
 
 
 - [Introduction to Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-pyspark)
-    - []  Getting to know PySpark (0%)
+    - [X]  Getting to know PySpark (100%)
     - []  Manipulating data (0%)
     - []  Getting started with machine learning pipelines (0%)
     - []  Model tuning and selection (0%)
