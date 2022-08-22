@@ -85,7 +85,7 @@
     - [X]  Getting to know PySpark (100%)
     - [X]  Manipulating data (100%)
     - [X]  Getting started with machine learning pipelines (100%)
-    - []  Model tuning and selection (0%)
+    - [X]  Model tuning and selection (100%)
 
 
 - [Introduction to AWS Boto Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-aws-boto-in-python)
