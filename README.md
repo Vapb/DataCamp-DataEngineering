@@ -119,7 +119,7 @@
 
 - [Big Data Fundamentals with Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/big-data-fundamentals-with-pyspark)
     - [X]  Introduction to Big Data analysis with Spark (100%)
-    - []  Programming in PySpark RDD’s (0%)
+    - [X]  Programming in PySpark RDD’s (100%)
     - []  PySpark SQL & DataFrames (0%)
     - []  Machine Learning with PySpark MLlib (0%)
 
