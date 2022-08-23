@@ -118,7 +118,7 @@
     - [X]  Type Systems, Control Structures, Style (100%)
 
 - [Big Data Fundamentals with Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/big-data-fundamentals-with-pyspark)
-    - []  Introduction to Big Data analysis with Spark (0%)
+    - [X]  Introduction to Big Data analysis with Spark (100%)
     - []  Programming in PySpark RDD’s (0%)
     - []  PySpark SQL & DataFrames (0%)
     - []  Machine Learning with PySpark MLlib (0%)
