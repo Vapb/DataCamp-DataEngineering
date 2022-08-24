@@ -7,6 +7,7 @@
     - [x]  Storing data (100%)
     - [x]  Moving and processing data (100%)
 
+
  - [X]  Python Assessment ( Test )
 
 
@@ -117,6 +118,7 @@
     - [X]  Workflows, Functions, Collections (100%)
     - [X]  Type Systems, Control Structures, Style (100%)
 
+
 - [Big Data Fundamentals with Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/big-data-fundamentals-with-pyspark)
     - [X]  Introduction to Big Data analysis with Spark (100%)
     - [X]  Programming in PySpark RDD’s (100%)
@@ -129,6 +131,7 @@
     - []  Manipulating DataFrames in the real world (0%)
     - []  Improving Performance (0%)
     - []  Complex processing and data pipelines (0%)
+
 
 - [Introduction to MongoDB in Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-using-mongodb-for-data-science-with-python)
     - [X]  Flexibly Structured Data (100%)
