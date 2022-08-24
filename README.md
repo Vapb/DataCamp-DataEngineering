@@ -121,7 +121,7 @@
     - [X]  Introduction to Big Data analysis with Spark (100%)
     - [X]  Programming in PySpark RDD’s (100%)
     - [X]  PySpark SQL & DataFrames (100%)
-    - []  Machine Learning with PySpark MLlib (0%)
+    - [X]  Machine Learning with PySpark MLlib (100%)
 
 
 - [Cleaning data with Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/cleaning-data-with-pyspark)
