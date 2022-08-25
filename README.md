@@ -128,7 +128,7 @@
 
 - [Cleaning data with Pyspark (Interactive Course)](https://app.datacamp.com/learn/courses/cleaning-data-with-pyspark)
     - [X]  DataFrame details (100%)
-    - []  Manipulating DataFrames in the real world (0%)
+    - [X]  Manipulating DataFrames in the real world (100%)
     - []  Improving Performance (0%)
     - []  Complex processing and data pipelines (0%)
 
