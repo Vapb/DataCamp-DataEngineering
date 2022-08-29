@@ -130,7 +130,7 @@
     - [X]  DataFrame details (100%)
     - [X]  Manipulating DataFrames in the real world (100%)
     - [X]  Improving Performance (100%)
-    - []  Complex processing and data pipelines (0%)
+    - [X]  Complex processing and data pipelines (100%)
 
 
 - [Introduction to MongoDB in Python (Interactive Course)](https://app.datacamp.com/learn/courses/introduction-to-using-mongodb-for-data-science-with-python)
