@@ -236,7 +236,7 @@
     Improving Query Performance in PostgreSQL (100%)
 
 ## SQL Server Fundamentals (SKILL TRACK)
-    Introduction to SQL Server (25%)
+    Introduction to SQL Server (50%)
     Introduction to Relational Databases (100%)
     Intermediate SQL Server ()
     Time Series Analysis in SQL Server ()
