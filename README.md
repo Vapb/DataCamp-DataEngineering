@@ -235,3 +235,9 @@
     Creating PostgreSQL Databases (100%)
     Improving Query Performance in PostgreSQL (100%)
 
+## SQL Server Fundamentals (SKILL TRACK)
+    Introduction to SQL Server (25%)
+    Introduction to Relational Databases (100%)
+    Intermediate SQL Server ()
+    Time Series Analysis in SQL Server ()
+    Functions for Manipulating Data in SQL Server ()
